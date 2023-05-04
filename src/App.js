@@ -1,8 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginScreen from "./screens/LoginScreen";
+import MyAreaScreen from "./screens/MyAreaScreen";
 
 function App() {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={`/担当エリア`} element={<MyAreaScreen />} />
+        <Route path={`/ログイン`} element={<LoginScreen />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

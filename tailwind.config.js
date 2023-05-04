@@ -2,7 +2,17 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        arial: ["Arial"],
+      },
+      colors: {
+        form: "#EFEDED",
+        test: "#706F6F",
+        loginBotton: "#84ED82",
+        main_green: "#A0E99E",
+      },
+    },
   },
   plugins: [],
 };
