@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import StatusVisual from "./StatusVisual";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -23,7 +24,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
+  "&:nth-of-type(even)": {
     backgroundColor: theme.palette.action.hover,
   },
   // hide last border
@@ -36,40 +37,37 @@ function createData(type, name, states, memos) {
   return { type, name, states, memos };
 }
 
-const rows = [
-  createData("うさぎ", "キャロット", 0, "どっか行った"),
-  createData("うさぎ", "ぴょんすけ", 0, ""),
-  createData("うさぎ", "ミッフィー", 1, ""),
-  createData("うさぎ", "ピーター", 2, ""),
-  createData("レッサーパンダ", "ラスカル", 1, ""),
-  createData("レッサーパンダ", "メイ", 1, ""),
-  createData("リスざる", "ジュリアン", 0, ""),
-];
-
 export default function MyAreaTable() {
   return (
-    <div className='fixed right-0 mr-40 mt-16 w-[1240px]'>
+    <div className='fixed right-0 mr-60 mt-24 w-[1240px]'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
             <TableRow>
-              <StyledTableCell className='w-[240px]'>種類</StyledTableCell>
-              <StyledTableCell className='w-[240px]'>名前</StyledTableCell>
-              <StyledTableCell className='w-[240px]'>
+              <StyledTableCell align='center' className='w-[240px]'>
+                種類
+              </StyledTableCell>
+              <StyledTableCell align='center' className='w-[240px]'>
+                名前
+              </StyledTableCell>
+              <StyledTableCell align='center' className='w-[240px]'>
                 ステータス
               </StyledTableCell>
-              <StyledTableCell>メモ</StyledTableCell>
+              <StyledTableCell align='center'>メモ</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <StyledTableRow key={row.type}>
-                <StyledTableCell component='th' scope='row'>
+                <StyledTableCell component='th' scope='row' align='center'>
                   {row.type}
                 </StyledTableCell>
-                <StyledTableCell>{row.name}</StyledTableCell>
-                <StyledTableCell align='center'>{row.states}</StyledTableCell>
-                <StyledTableCell>{row.memos}</StyledTableCell>
+                <StyledTableCell align='center'>{row.name}</StyledTableCell>
+                <StyledTableCell align='center'>
+                  {/* ここでステータスを表示 */}
+                  <StatusVisual status={row.states} />
+                </StyledTableCell>
+                <StyledTableCell align='center'>{row.memos}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
@@ -78,3 +76,13 @@ export default function MyAreaTable() {
     </div>
   );
 }
+
+const rows = [
+  createData("うさぎ", "キャロット", 3, "どっか行った"),
+  createData("うさぎ", "ぴょんすけ", 0, ""),
+  createData("うさぎ", "ミッフィー", 1, ""),
+  createData("うさぎ", "ピーター", 2, ""),
+  createData("レッサーパンダ", "ラスカル", 1, ""),
+  createData("レッサーパンダ", "メイ", 3, ""),
+  createData("リスざる", "ジュリアン", 0, ""),
+];
