@@ -11,7 +11,12 @@ const SearchBox = () => {
         <Autocomplete
           disablePortal
           options={types}
-          sx={{ width: 200 }}
+          sx={{
+            width: 200,
+            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+              borderColor: "black",
+            },
+          }}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -25,10 +30,16 @@ const SearchBox = () => {
             />
           )}
         />
+
         <TextField
           id='outlined-basic'
           label='名前'
-          sx={{ width: 200 }}
+          sx={{
+            width: 200,
+            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+              borderColor: "black",
+            },
+          }}
           variant='outlined'
           InputLabelProps={{
             style: {
@@ -40,7 +51,12 @@ const SearchBox = () => {
         <Autocomplete
           disablePortal
           options={status}
-          sx={{ width: 200 }}
+          sx={{
+            width: 200,
+            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+              borderColor: "black",
+            },
+          }}
           renderInput={(params) => (
             <TextField
               {...params}
