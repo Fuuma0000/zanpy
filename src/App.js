@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path={`/担当エリア`} element={<MyAreaScreen />} />
         <Route path={`/ログイン`} element={<LoginScreen />} />
+        <Route path={`/*`} element={<LoginScreen />} />
       </Routes>
     </BrowserRouter>
   );
