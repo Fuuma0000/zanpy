@@ -13,16 +13,19 @@ const SearchBox = () => {
           <Autocomplete
             disablePortal
             options={types}
-            //文字を太くする
-            // sx={{ fontWeight: 900 }} これではならなかった
-            // InputLabelProps={{
-            //   style: {
-            //     color: "#706F6F",
-            //     fontWeight: 900,
-            //   },
-            // }} これではならなかった
             sx={{ fontWeight: 900 }}
-            renderInput={(params) => <TextField {...params} label='種類' />}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label='種類'
+                InputLabelProps={{
+                  style: {
+                    color: "#706F6F",
+                    fontWeight: 900,
+                  },
+                }}
+              />
+            )}
           />
           <TextField
             id='outlined-basic'
@@ -37,14 +40,6 @@ const SearchBox = () => {
               },
             }}
           />
-          {/* <Autocomplete
-            disablePortal
-            options={status}
-            sx={{ width: 300, fontWeight: "bold" }}
-            renderInput={(params) => (
-              <TextField {...params} label='ステータス' />
-            )}
-          /> */}
           <Autocomplete
             disablePortal
             options={status}
