@@ -10,11 +10,15 @@ import Paper from "@mui/material/Paper";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: "#E0E0E0",
+    color: theme.palette.common.black,
+    fontWeight: 900,
+    fontSize: 24,
+    borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 24,
+    borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
   },
 }));
 
@@ -33,38 +37,44 @@ function createData(type, name, states, memos) {
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
+  createData("うさぎ", "キャロット", 0, "どっか行った"),
+  createData("うさぎ", "ぴょんすけ", 0, ""),
+  createData("うさぎ", "ミッフィー", 1, ""),
+  createData("うさぎ", "ピーター", 2, ""),
+  createData("レッサーパンダ", "ラスカル", 1, ""),
+  createData("レッサーパンダ", "メイ", 1, ""),
+  createData("リスざる", "ジュリアン", 0, ""),
 ];
 
 export default function MyAreaTable() {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label='customized table'>
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>種類</StyledTableCell>
-            <StyledTableCell align='right'>名前</StyledTableCell>
-            <StyledTableCell align='right'>ステータス</StyledTableCell>
-            <StyledTableCell align='right'>メモ</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.type}>
-              <StyledTableCell component='th' scope='row'>
-                {row.type}
+    <div className='fixed right-0 mr-40 mt-16 w-[1240px]'>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700 }} aria-label='customized table'>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell className='w-[240px]'>種類</StyledTableCell>
+              <StyledTableCell className='w-[240px]'>名前</StyledTableCell>
+              <StyledTableCell className='w-[240px]'>
+                ステータス
               </StyledTableCell>
-              <StyledTableCell align='right'>{row.name}</StyledTableCell>
-              <StyledTableCell align='right'>{row.states}</StyledTableCell>
-              <StyledTableCell align='right'>{row.memos}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              <StyledTableCell>メモ</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <StyledTableRow key={row.type}>
+                <StyledTableCell component='th' scope='row'>
+                  {row.type}
+                </StyledTableCell>
+                <StyledTableCell>{row.name}</StyledTableCell>
+                <StyledTableCell align='center'>{row.states}</StyledTableCell>
+                <StyledTableCell>{row.memos}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 }
