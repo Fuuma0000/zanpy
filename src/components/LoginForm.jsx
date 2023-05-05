@@ -38,7 +38,7 @@ const LoginForm = () => {
             />
           </div>
           <button
-            className='block mx-auto rounded-lg w-5/12 bg-loginBotton px-4 py-3 mt-10 text-center text-lg font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600
+            className='block mx-auto rounded-lg w-5/12 bg-loginBotton px-4 py-3 mt-10 text-center text-lg font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-hover_color focus-visible:ring
           '
             onClick={() => navigate("/担当エリア")}
           >
