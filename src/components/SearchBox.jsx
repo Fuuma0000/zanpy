@@ -25,6 +25,12 @@ const SearchBox = () => {
                 style: {
                   color: "#706F6F",
                   fontWeight: 900,
+                  //文字を封得させたいけど、外枠からはみ出る
+                  fontSize: 22,
+                  position: "relative",
+                  top: 28,
+                  //網ちょい右にしたいけど、leftをつけたら、検索ボックスがずれる
+                  // left: 5,
                 },
               }}
             />
@@ -45,9 +51,12 @@ const SearchBox = () => {
             style: {
               color: "#706F6F",
               fontWeight: 900,
+              //文字を封得させたいけど、外枠からはみ出る
+              fontSize: 22,
             },
           }}
         />
+
         <Autocomplete
           disablePortal
           options={status}
@@ -65,6 +74,8 @@ const SearchBox = () => {
                 style: {
                   color: "#706F6F",
                   fontWeight: 900,
+                  //文字を封得させたいけど、外枠からはみ出る
+                  fontSize: 18,
                 },
               }}
             />
@@ -74,8 +85,16 @@ const SearchBox = () => {
         <div className='flex justify-center'>
           <Button
             variant='contained'
-            style={{ backgroundColor: "#A0E99E" }}
-            className='w-32'
+            style={{
+              backgroundColor: "#A0E99E",
+              fontWeight: 900,
+              fontSize: 24,
+              fontSize: 22,
+              position: "relative",
+              top: 28,
+              paddingRight: 10,
+            }}
+            className='w-32 h-10'
           >
             検索
           </Button>
