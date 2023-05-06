@@ -4,6 +4,7 @@ import chroma from "chroma-js";
 import { colourOptions } from "../data.tsx";
 import Select, { StylesConfig } from "react-select";
 
+//TODO: ドット消す
 const dot = (color = "transparent") => ({
   alignItems: "center",
   display: "flex",
@@ -19,6 +20,7 @@ const dot = (color = "transparent") => ({
   },
 });
 
+//TODO: 矢印の部分は白にしたい
 const colourStyles = {
   control: (styles, { selectProps: { value } }) => ({
     ...styles,
@@ -61,54 +63,6 @@ const colourStyles = {
   placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
   singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };
-
-// const colourStyles = {
-//   control: (styles, { selectProps: { value } }) => ({
-//     ...styles,
-//     backgroundColor: value ? value.color : "white",
-//   }),
-//   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-//     const color = chroma(data.color);
-//     return {
-//       ...styles,
-//       backgroundColor: isDisabled
-//         ? undefined
-//         : isSelected
-//         ? data.color
-//         : isFocused
-//         ? color.alpha(0.1).css()
-//         : undefined,
-//       color: isDisabled
-//         ? "#ccc"
-//         : isSelected || chroma.contrast(color, "white") > 2
-//         ? "white"
-//         : "black",
-//       cursor: isDisabled ? "not-allowed" : "default",
-
-//       ":active": {
-//         ...styles[":active"],
-//         backgroundColor: !isDisabled
-//           ? isSelected
-//             ? data.color
-//             : color.alpha(0.3).css()
-//           : undefined,
-//       },
-//     };
-//   },
-//   input: (styles, { selectProps: { value } }) => ({
-//     ...styles,
-//     ...dot(value.color),
-//   }),
-//   placeholder: (styles, { selectProps: { value } }) => ({
-//     ...styles,
-//     ...dot(value.color || "#ccc"),
-//   }),
-//   singleValue: (styles, { data }) => ({
-//     ...styles,
-//     ...dot(data.color),
-//     color: chroma.contrast(data.color, "white") > 2 ? "white" : "black",
-//   }),
-// };
 
 export default () => (
   <Select
