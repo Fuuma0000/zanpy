@@ -5,9 +5,9 @@ export interface ColourOption {
 }
 
 export const colourOptions: readonly ColourOption[] = [
-  { value: "ocean", label: "怪我あり", color: "#00B8D9" },
-  { value: "blue", label: "脱走中", color: "#0052CC" },
-  { value: "purple", label: "迷子保護", color: "#5243AA" },
-  { value: "red", label: "無事", color: "#FF5630" },
-  { value: "orange", label: "不明", color: "#FF8B00" },
+  { value: "ocean", label: "怪我あり", color: "#FFCCCC" },
+  { value: "blue", label: "脱走中", color: "#FEFFB6" },
+  { value: "purple", label: "迷子保護", color: "#B9DCEF" },
+  { value: "red", label: "無事", color: "#C0FBBF" },
+  { value: "orange", label: "不明", color: "#D9D9D9" },
 ];
