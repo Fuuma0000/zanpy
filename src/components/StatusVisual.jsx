@@ -21,7 +21,9 @@ const StatusVisual = ({ status }) => {
   }
 
   return (
-    <div className={`w-28 h-8 rounded-2xl text-white ${color}`}>{text}</div>
+    <>
+      <div className={`w-28 h-8 rounded-2xl text-white ${color}`}>{text}</div>
+    </>
   );
 };
 

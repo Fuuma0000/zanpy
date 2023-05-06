@@ -8,6 +8,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import StatusVisual from "./StatusVisual";
+import { useState } from "react";
+import StatusSelect from "./StatusSelect";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -38,6 +40,25 @@ function createData(type, name, states, memos) {
 }
 
 export default function MyAreaTable() {
+  const [selectedStatus, setSelectedStatus] = useState(null);
+  const [rows, setRows] = useState([
+    createData("うさぎ", "キャロット", 3, "どっか行った"),
+    createData("うさぎ", "ぴょんすけ", 0, ""),
+    createData("うさぎ", "ミッフィー", 1, ""),
+    createData("うさぎ", "ピーター", 2, ""),
+    createData("レッサーパンダ", "ラスカル", 1, ""),
+    createData("レッサーパンダ", "メイ", 3, ""),
+    createData("リスざる", "ジュリアン", 0, ""),
+  ]);
+
+  const handleChangeStatus = (event, index) => {
+    const newRows = [...rows];
+    console.log(event.target.value);
+    newRows[index].states = parseInt(event.target.value);
+    console.log(newRows);
+    setRows(newRows);
+  };
+
   return (
     <div className='fixed right-0 mr-60 mt-24 w-[1240px]'>
       <TableContainer component={Paper}>
@@ -57,15 +78,27 @@ export default function MyAreaTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.type}>
+            {rows.map((row, index) => (
+              <StyledTableRow key={row.index}>
                 <StyledTableCell component='th' scope='row' align='center'>
                   {row.type}
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
-                  {/* ここでステータスを表示 */}
-                  <StatusVisual status={row.states} />
+                  <div className='flex items-center'>
+                    <StatusVisual status={row.states} />
+                    <select
+                      value={selectedStatus}
+                      onChange={(event) => handleChangeStatus(event, index)}
+                    >
+                      <option value={0}>怪我あり</option>
+                      <option value={1}>脱走中</option>
+                      <option value={2}>迷子保護</option>
+                      <option value={3}>無事</option>
+                      <option value={4}>不明</option>
+                    </select>
+                  </div>
+                  <StatusSelect></StatusSelect>
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.memos}</StyledTableCell>
               </StyledTableRow>
