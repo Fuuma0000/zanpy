@@ -85,7 +85,7 @@ export default function MyAreaTable() {
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
-                  <div className='flex items-center'>
+                  {/* <div className='flex items-center'>
                     <StatusVisual status={row.states} />
                     <select
                       value={selectedStatus}
@@ -97,7 +97,7 @@ export default function MyAreaTable() {
                       <option value={3}>無事</option>
                       <option value={4}>不明</option>
                     </select>
-                  </div>
+                  </div> */}
                   <StatusSelect></StatusSelect>
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.memos}</StyledTableCell>

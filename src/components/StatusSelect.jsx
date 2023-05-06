@@ -24,25 +24,33 @@ const colourStyles = {
     ...styles,
     backgroundColor: value ? value.color : "white",
   }),
-  option: (styles, { data, isSelected, isFocused }) => {
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = chroma(data.color);
     return {
       ...styles,
-      backgroundColor: isSelected
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
         ? data.color
         : isFocused
         ? color.alpha(0.1).css()
         : undefined,
-      color: isSelected
+      color: isDisabled
+        ? "#ccc"
+        : isSelected
         ? chroma.contrast(color, "white") > 2
           ? "white"
           : "black"
         : data.color,
-      cursor: "default",
+      cursor: isDisabled ? "not-allowed" : "default",
 
       ":active": {
         ...styles[":active"],
-        backgroundColor: isSelected ? data.color : color.alpha(0.3).css(),
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? data.color
+            : color.alpha(0.3).css()
+          : undefined,
       },
     };
   },
