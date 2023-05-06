@@ -89,7 +89,6 @@ const SearchBox = () => {
               backgroundColor: "#A0E99E",
               fontWeight: 900,
               fontSize: 24,
-              fontSize: 22,
               position: "relative",
               top: 28,
               paddingRight: 10,
