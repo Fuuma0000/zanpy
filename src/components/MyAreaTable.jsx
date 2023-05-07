@@ -7,40 +7,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import StatusVisual from "./StatusVisual";
 import { useState } from "react";
 import StatusSelect from "./StatusSelect";
 import DetailButton from "../components/DetailButton";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#E0E0E0",
-    color: theme.palette.common.black,
-    fontWeight: 900,
-    fontSize: 24,
-    borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 24,
-    borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
-  },
-}));
+const MyAreaTable = () => {
+  function createData(type, name, states, memos) {
+    return { type, name, states, memos };
+  }
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(even)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
-
-function createData(type, name, states, memos) {
-  return { type, name, states, memos };
-}
-
-export default function MyAreaTable() {
   const [rows, setRows] = useState([
     createData("うさぎ", "キャロット", 3, "どっか行った"),
     createData("うさぎ", "ぴょんすけ", 0, "どりゃああああ"),
@@ -59,6 +34,30 @@ export default function MyAreaTable() {
     newRows[index].states = parseInt(event.target.value);
     setRows(newRows);
   };
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: "#E0E0E0",
+      color: theme.palette.common.black,
+      fontWeight: 900,
+      fontSize: 24,
+      borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 24,
+      borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(even)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
 
   return (
     <div className='absolute right-0 mr-60 mt-24 w-[1240px]'>
@@ -80,13 +79,13 @@ export default function MyAreaTable() {
           </TableHead>
           <TableBody>
             {rows.map((row, index) => (
-              <StyledTableRow key={row.index}>
+              <StyledTableRow key={index}>
                 <StyledTableCell component='th' scope='row' align='center'>
                   {row.type}
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
-                  <StatusSelect></StatusSelect>
+                  <StatusSelect states={row.states}></StatusSelect>
                 </StyledTableCell>
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
@@ -101,14 +100,6 @@ export default function MyAreaTable() {
       </TableContainer>
     </div>
   );
-}
+};
 
-const rows = [
-  createData("うさぎ", "キャロット", 3, "どっか行った"),
-  createData("うさぎ", "ぴょんすけ", 0, ""),
-  createData("うさぎ", "ミッフィー", 1, ""),
-  createData("うさぎ", "ピーター", 2, ""),
-  createData("レッサーパンダ", "ラスカル", 1, ""),
-  createData("レッサーパンダ", "メイ", 3, ""),
-  createData("リスざる", "ジュリアン", 0, ""),
-];
+export default MyAreaTable;
