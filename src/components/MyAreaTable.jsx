@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import { useState } from "react";
 import StatusSelect from "./StatusSelect";
 import DetailButton from "../components/DetailButton";
+import Button from "@mui/material/Button";
 
 const MyAreaTable = () => {
   function createData(type, name, states, memos) {
@@ -19,8 +20,8 @@ const MyAreaTable = () => {
   const [rows, setRows] = useState([
     createData("うさぎ", "キャロット", 3, "どっか行った"),
     createData("うさぎ", "ぴょんすけ", 0, "どりゃああああ"),
-    createData("うさぎ", "ミッフィー", 1, ""),
-    createData("うさぎ", "ピーター", 2, ""),
+    createData("うさぎ", "ミッフィー", 1, "ぽにょだよー"),
+    createData("うさぎ", "ピーター", 2, "ちくわの中身を覗いてしまった"),
     createData("レッサーパンダ", "ラスカル", 1, ""),
     createData("レッサーパンダ", "メイ", 3, ""),
     createData("リスざる", "ジュリアン", 0, ""),
@@ -31,7 +32,9 @@ const MyAreaTable = () => {
 
   const handleChangeStatus = (event, index) => {
     const newRows = [...rows];
-    newRows[index].states = parseInt(event.target.value);
+    console.log(event, index);
+    newRows[index].states = parseInt(event.target);
+    console.log("変わったよ");
     setRows(newRows);
   };
 
@@ -60,7 +63,7 @@ const MyAreaTable = () => {
   }));
 
   return (
-    <div className='absolute right-0 mr-60 pt-24 pb-44 w-[1240px]'>
+    <div className='absolute right-0 mr-60 pt-24 pb-20 w-[1240px]'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
@@ -85,7 +88,12 @@ const MyAreaTable = () => {
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
-                  <StatusSelect states={row.states}></StatusSelect>
+                  <StatusSelect
+                    states={row.states}
+                    handleChangeStatus={handleChangeStatus}
+                    index={index}
+                    // onChange={(event) => handleChangeStatus(event, index)}
+                  />
                 </StyledTableCell>
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
@@ -98,6 +106,21 @@ const MyAreaTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <div className='relative mt-10 ml-[1020px] mr-auto'>
+        <Button
+          variant='contained'
+          style={{
+            backgroundColor: "#A0E99E",
+            fontWeight: 900,
+            fontSize: 36,
+            letterSpacing: 14,
+            textIndent: 14,
+          }}
+          className='w-56 h-16'
+        >
+          登録
+        </Button>
+      </div>
     </div>
   );
 };

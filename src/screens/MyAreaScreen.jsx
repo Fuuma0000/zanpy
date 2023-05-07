@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import SearchBox from "../components/SearchBox";
 import MyAreaTable from "../components/MyAreaTable";
-import RegisterButton from "../components/RegisterButton";
 
 const MyAreaScreen = () => {
   return (
@@ -10,7 +9,6 @@ const MyAreaScreen = () => {
       <Header />
       <SearchBox />
       <MyAreaTable />
-      <RegisterButton />
     </>
   );
 };
