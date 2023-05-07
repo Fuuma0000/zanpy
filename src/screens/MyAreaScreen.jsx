@@ -6,12 +6,12 @@ import RegisterButton from "../components/RegisterButton";
 
 const MyAreaScreen = () => {
   return (
-    <div className=''>
+    <>
       <Header />
       <SearchBox />
-      <MyAreaTable></MyAreaTable>
-      <RegisterButton></RegisterButton>
-    </div>
+      <MyAreaTable />
+      <RegisterButton />
+    </>
   );
 };
 
