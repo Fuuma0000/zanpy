@@ -4,22 +4,6 @@ import chroma from "chroma-js";
 import { colourOptions } from "../data.tsx";
 import Select, { StylesConfig } from "react-select";
 
-//TODO: ドット消す
-const dot = (color = "transparent") => ({
-  alignItems: "center",
-  display: "flex",
-
-  ":before": {
-    backgroundColor: color,
-    borderRadius: 10,
-    content: '" "',
-    display: "block",
-    marginRight: 8,
-    height: 10,
-    width: 10,
-  },
-});
-
 //TODO: 矢印の部分は白にしたい
 const colourStyles = {
   control: (styles, { selectProps: { value } }) => ({
@@ -58,10 +42,9 @@ const colourStyles = {
   },
   input: (styles, { selectProps: { value } }) => ({
     ...styles,
-    ...dot(value.color),
   }),
-  placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
-  singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+  placeholder: (styles) => ({ ...styles }),
+  singleValue: (styles, { data }) => ({ ...styles }),
 };
 
 const StatusSelect = (states) => {
