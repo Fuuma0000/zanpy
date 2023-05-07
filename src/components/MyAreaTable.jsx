@@ -56,9 +56,7 @@ export default function MyAreaTable() {
 
   const handleChangeStatus = (event, index) => {
     const newRows = [...rows];
-    console.log(event.target.value);
     newRows[index].states = parseInt(event.target.value);
-    console.log(newRows);
     setRows(newRows);
   };
 
