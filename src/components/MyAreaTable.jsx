@@ -63,7 +63,7 @@ export default function MyAreaTable() {
   };
 
   return (
-    <div className='fixed right-0 mr-60 mt-24 w-[1240px]'>
+    <div className='absolute right-0 mr-60 mt-24 w-[1240px]'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
