@@ -64,10 +64,14 @@ const colourStyles = {
   singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };
 
-export default () => (
-  <Select
-    defaultValue={colourOptions[2]}
-    options={colourOptions}
-    styles={colourStyles}
-  />
-);
+const StatusSelect = (states) => {
+  return (
+    <Select
+      defaultValue={colourOptions[states.states]}
+      options={colourOptions}
+      styles={colourStyles}
+    />
+  );
+};
+
+export default StatusSelect;
