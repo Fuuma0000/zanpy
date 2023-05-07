@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 import StatusVisual from "./StatusVisual";
 import { useState } from "react";
 import StatusSelect from "./StatusSelect";
+import DetailButton from "../components/DetailButton";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,14 +41,16 @@ function createData(type, name, states, memos) {
 }
 
 export default function MyAreaTable() {
-  const [selectedStatus, setSelectedStatus] = useState(null);
   const [rows, setRows] = useState([
     createData("うさぎ", "キャロット", 3, "どっか行った"),
-    createData("うさぎ", "ぴょんすけ", 0, ""),
+    createData("うさぎ", "ぴょんすけ", 0, "どりゃああああ"),
     createData("うさぎ", "ミッフィー", 1, ""),
     createData("うさぎ", "ピーター", 2, ""),
     createData("レッサーパンダ", "ラスカル", 1, ""),
     createData("レッサーパンダ", "メイ", 3, ""),
+    createData("リスざる", "ジュリアン", 0, ""),
+    createData("リスざる", "ジュリアン", 0, ""),
+    createData("リスざる", "ジュリアン", 0, ""),
     createData("リスざる", "ジュリアン", 0, ""),
   ]);
 
@@ -85,22 +88,14 @@ export default function MyAreaTable() {
                 </StyledTableCell>
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
                 <StyledTableCell align='center'>
-                  {/* <div className='flex items-center'>
-                    <StatusVisual status={row.states} />
-                    <select
-                      value={selectedStatus}
-                      onChange={(event) => handleChangeStatus(event, index)}
-                    >
-                      <option value={0}>怪我あり</option>
-                      <option value={1}>脱走中</option>
-                      <option value={2}>迷子保護</option>
-                      <option value={3}>無事</option>
-                      <option value={4}>不明</option>
-                    </select>
-                  </div> */}
                   <StatusSelect></StatusSelect>
                 </StyledTableCell>
-                <StyledTableCell align='center'>{row.memos}</StyledTableCell>
+                <StyledTableCell>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <div style={{ marginRight: "auto" }}>{row.memos}</div>
+                    <DetailButton />
+                  </div>
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
