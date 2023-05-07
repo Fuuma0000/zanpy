@@ -26,7 +26,7 @@ const MyAreaTable = () => {
     createData("リスざる", "ジュリアン", 0, ""),
     createData("リスざる", "ジュリアン", 0, ""),
     createData("リスざる", "ジュリアン", 0, ""),
-    createData("リスざる", "ジュリアン", 0, ""),
+    createData("リスざるwww", "ジュリアン", 0, ""),
   ]);
 
   const handleChangeStatus = (event, index) => {
@@ -60,7 +60,7 @@ const MyAreaTable = () => {
   }));
 
   return (
-    <div className='absolute right-0 mr-60 mt-24 w-[1240px]'>
+    <div className='absolute right-0 mr-60 pt-24 pb-44 w-[1240px]'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
