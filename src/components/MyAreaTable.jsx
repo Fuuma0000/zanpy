@@ -31,13 +31,8 @@ const MyAreaTable = () => {
   ]);
 
   const handleChangeStatus = (e, index) => {
-    //TODO: ここでe.target.valueを使うと、undefinedになる なぜ？
-    //eで出してみると、data.tsxのcolourOptionsの中身が出てくる
-    // console.log(e.value);
-
     const newRows = [...rows];
     newRows[index].states = e.value;
-    // console.log("変わったよ");
     setRows(newRows);
   };
 
@@ -66,8 +61,10 @@ const MyAreaTable = () => {
   }));
 
   return (
+    //これだと左の余白ができる
     // <div className='absolute right-10 mr-20 pt-24 pb-20 w-8/12'>
     <div className='absolute right-0 mr-20 pt-24 pb-20 w-9/12'>
+      {/* こっちでもいいかも */}
       {/* <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'> */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
@@ -99,9 +96,6 @@ const MyAreaTable = () => {
                     states={row.states}
                     handleChangeStatus={handleChangeStatus}
                     index={index}
-                    // ここでonChangeを使っても、そもそも動かない
-                    // onChange={(event) => handleChangeStatus(event, index)}
-                    // onChange={() => console.log("変わったよhoge")}
                   />
                 </StyledTableCell>
                 <StyledTableCell>
@@ -115,7 +109,6 @@ const MyAreaTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <div className='relative mt-10 ml-[1220px] mr-auto'> */}
       <div className='relative ml-auto mr-0 mt-10 flex justify-end'>
         <Button
           variant='contained'
