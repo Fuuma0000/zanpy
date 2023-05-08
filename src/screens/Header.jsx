@@ -20,9 +20,6 @@ const Header = () => {
         <button className='font-arial text-test font-black text-xl'>
           検索
         </button>
-        <button className='font-arial text-test font-black text-xl'>
-          脱出掲示板
-        </button>
       </div>
       {/* ログアウトボタン */}
       <div className='flex bg-white rounded-2xl items-center'>
