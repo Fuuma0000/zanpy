@@ -30,10 +30,13 @@ const MyAreaTable = () => {
     createData("リスざるwww", "ジュリアン", 0, ""),
   ]);
 
-  const handleChangeStatus = (event, index) => {
+  const handleChangeStatus = (e, index) => {
+    //TODO: ここでe.target.valueを使うと、undefinedになる なぜ？
+    //eで出してみると、data.tsxのcolourOptionsの中身が出てくる
+    console.log(e);
+
     const newRows = [...rows];
-    console.log(event, index);
-    newRows[index].states = parseInt(event.target);
+    newRows[index].states = parseInt(e.target);
     console.log("変わったよ");
     setRows(newRows);
   };
@@ -92,7 +95,10 @@ const MyAreaTable = () => {
                     states={row.states}
                     handleChangeStatus={handleChangeStatus}
                     index={index}
+
+                    // ここでonChangeを使っても、そもそも動かない
                     // onChange={(event) => handleChangeStatus(event, index)}
+                    // onChange={() => console.log("変わったよ")}
                   />
                 </StyledTableCell>
                 <StyledTableCell>

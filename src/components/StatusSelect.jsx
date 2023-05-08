@@ -47,12 +47,16 @@ const colourStyles = {
   singleValue: (styles, { data }) => ({ ...styles }),
 };
 
-const StatusSelect = (states) => {
+const StatusSelect = ({ states, handleChangeStatus, index }) => {
   return (
     <Select
-      defaultValue={colourOptions[states.states]}
+      //こっちにするとSelectみたいな表示になる
+      // defaultValue={colourOptions[states.states]}
+      defaultValue={colourOptions[states]}
       options={colourOptions}
       styles={colourStyles}
+      onChange={(e) => handleChangeStatus(e, index)}
+      // onChange={() => console.log("変わったよ")}
     />
   );
 };
