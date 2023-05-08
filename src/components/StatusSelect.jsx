@@ -14,8 +14,8 @@ const dot = (color = "transparent") => ({
     content: '" "',
     display: "block",
     marginRight: 8,
-    height: 10,
-    width: 10,
+    height: 15,
+    width: 15,
   },
 });
 
@@ -39,18 +39,7 @@ const colourStyles = {
   singleValue: (styles, { data }) => {
     const updatedStyles = {
       ...styles,
-      alignItems: "center",
-      display: "flex",
-      fontSize: 20, // フォントサイズを指定
-      ":before": {
-        backgroundColor: data.color,
-        borderRadius: 10,
-        content: '" "',
-        display: "block",
-        marginRight: 8,
-        height: 15,
-        width: 15,
-      },
+      ...dot(data.color),
     };
     return updatedStyles;
   },
