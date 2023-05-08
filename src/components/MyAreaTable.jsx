@@ -66,9 +66,7 @@ const MyAreaTable = () => {
   }));
 
   return (
-    //デスクトップ用デバッグ用
-    // <div className='absolute right-0 mr-60 pt-24 pb-20 w-[1240px]'>
-    <div className='absolute right-0 mr-40 pt-24 pb-20 w-[1060px]'>
+    <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
