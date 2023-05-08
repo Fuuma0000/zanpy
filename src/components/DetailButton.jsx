@@ -8,9 +8,10 @@ const DetailButton = () => {
       style={{
         backgroundColor: "#706F6F",
         fontWeight: 900,
-        fontSize: 24,
+        fontSize: 20,
       }}
-      className='w-40 h-14'
+      className='w-24 h-10'
+      // className='w-40 h-14'
     >
       詳細
     </Button>
