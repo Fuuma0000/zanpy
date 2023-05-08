@@ -2,61 +2,67 @@ import React from "react";
 import chroma from "chroma-js";
 
 import { colourOptions } from "../data.tsx";
-import Select, { StylesConfig } from "react-select";
+import Select from "react-select";
 
-//TODO: 矢印の部分は白にしたい
+const dot = (color = "transparent") => ({
+  alignItems: "center",
+  display: "flex",
+
+  ":before": {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: '" "',
+    display: "block",
+    marginRight: 8,
+    height: 10,
+    width: 10,
+  },
+});
+
 const colourStyles = {
-  control: (styles, { selectProps: { value } }) => ({
-    ...styles,
-    backgroundColor: value ? value.color : "white",
-  }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+  control: (styles) => {
+    const updatedStyles = {
+      ...styles,
+      backgroundColor: "white",
+    };
+    return updatedStyles;
+  },
+  option: (styles, { data, isFocused, isSelected }) => {
     const color = chroma(data.color);
     return {
       ...styles,
-      backgroundColor: isDisabled
-        ? undefined
-        : isSelected
-        ? data.color
-        : isFocused
-        ? color.alpha(0.1).css()
-        : undefined,
-      color: isDisabled
-        ? "#ccc"
-        : isSelected
-        ? chroma.contrast(color, "white") > 2
-          ? "white"
-          : "black"
-        : data.color,
-      cursor: isDisabled ? "not-allowed" : "default",
-
-      ":active": {
-        ...styles[":active"],
-        backgroundColor: !isDisabled
-          ? isSelected
-            ? data.color
-            : color.alpha(0.3).css()
-          : undefined,
-      },
+      backgroundColor: isSelected ? color.alpha(0.5).css() : undefined, // 選択時の背景色を変更
+      color: "black",
+      cursor: "default",
     };
   },
-  input: (styles, { selectProps: { value } }) => ({
-    ...styles,
-  }),
-  placeholder: (styles) => ({ ...styles }),
-  singleValue: (styles, { data }) => ({ ...styles }),
+  singleValue: (styles, { data }) => {
+    const updatedStyles = {
+      ...styles,
+      alignItems: "center",
+      display: "flex",
+      fontSize: 20, // フォントサイズを指定
+      ":before": {
+        backgroundColor: data.color,
+        borderRadius: 10,
+        content: '" "',
+        display: "block",
+        marginRight: 8,
+        height: 15,
+        width: 15,
+      },
+    };
+    return updatedStyles;
+  },
 };
 
 const StatusSelect = ({ states, handleChangeStatus, index }) => {
   return (
     <Select
-      //こっちにするとSelectみたいな表示になる
-      // defaultValue={colourOptions[states]}
       options={colourOptions}
       styles={colourStyles}
       onChange={(e) => handleChangeStatus(e, index)}
       value={colourOptions[states]}
-      // onChange={() => console.log("変わったよ")}
     />
   );
 };
