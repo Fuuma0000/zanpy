@@ -62,8 +62,10 @@ const MyAreaTable = () => {
 
   return (
     //これだと左の余白ができる
-    // <div className='absolute right-10 mr-20 pt-24 pb-20 w-8/12'>
-    <div className='absolute right-0 mr-20 pt-24 pb-20 w-9/12'>
+    //両方とも2xlだから調整ができない
+
+    <div className='absolute right-0 mr-20 pt-24 pb-20 w-[70%] pc:w-[72%] '>
+      {/* <div className='absolute right-0 mr-20 pt-24 pb-20 w-9/12'> */}
       {/* こっちでもいいかも */}
       {/* <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'> */}
       <TableContainer component={Paper}>
@@ -79,7 +81,7 @@ const MyAreaTable = () => {
               <StyledTableCell align='center' className='w-2/12'>
                 ステータス
               </StyledTableCell>
-              <StyledTableCell align='center' className='w-6/12'>
+              <StyledTableCell align='center' className=''>
                 メモ
               </StyledTableCell>
             </TableRow>
