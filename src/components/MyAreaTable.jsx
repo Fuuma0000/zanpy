@@ -66,21 +66,25 @@ const MyAreaTable = () => {
   }));
 
   return (
-    <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'>
+    // <div className='absolute right-10 mr-20 pt-24 pb-20 w-8/12'>
+    <div className='absolute right-0 mr-20 pt-24 pb-20 w-9/12'>
+      {/* <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'> */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
             <TableRow>
-              <StyledTableCell align='center' className='w-[240px]'>
+              <StyledTableCell align='center' className='w-2/12'>
                 種類
               </StyledTableCell>
-              <StyledTableCell align='center' className='w-[240px]'>
+              <StyledTableCell align='center' className='w-2/12'>
                 名前
               </StyledTableCell>
-              <StyledTableCell align='center' className='w-[240px]'>
+              <StyledTableCell align='center' className='w-2/12'>
                 ステータス
               </StyledTableCell>
-              <StyledTableCell align='center'>メモ</StyledTableCell>
+              <StyledTableCell align='center' className='w-6/12'>
+                メモ
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -111,8 +115,8 @@ const MyAreaTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <div className='relative mt-10 ml-[1020px] mr-auto'> */}
-      <div className='relative mt-10 ml-[840px] mr-auto'>
+      {/* <div className='relative mt-10 ml-[1220px] mr-auto'> */}
+      <div className='relative ml-auto mr-0 mt-10 flex justify-end'>
         <Button
           variant='contained'
           style={{
