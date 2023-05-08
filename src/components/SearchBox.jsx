@@ -7,7 +7,7 @@ const SearchBox = () => {
   return (
     <div className='fixed bg-white left-16 top-72 rounded-3xl shadow-xl'>
       {/* 検索ボックス */}
-      <div className='flex flex-col gap-8 p-12 '>
+      <div className='flex flex-col gap-6 px-12 pt-2 pb-6  '>
         <Autocomplete
           disablePortal
           options={types}
@@ -90,10 +90,10 @@ const SearchBox = () => {
               fontWeight: 900,
               fontSize: 24,
               position: "relative",
-              top: 28,
+              top: 4,
               paddingRight: 10,
             }}
-            className='w-32 h-10'
+            className='w-36 h-12'
           >
             検索
           </Button>
