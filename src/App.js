@@ -5,8 +5,6 @@ import MyAreaScreen from "./screens/MyAreaScreen";
 import MemoScreen from "./screens/MemoScreen";
 
 function App() {
-  const isMyArea = true;
-
   return (
     <BrowserRouter>
       <Routes>
