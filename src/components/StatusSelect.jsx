@@ -51,11 +51,11 @@ const StatusSelect = ({ states, handleChangeStatus, index }) => {
   return (
     <Select
       //こっちにするとSelectみたいな表示になる
-      // defaultValue={colourOptions[states.states]}
-      defaultValue={colourOptions[states]}
+      // defaultValue={colourOptions[states]}
       options={colourOptions}
       styles={colourStyles}
       onChange={(e) => handleChangeStatus(e, index)}
+      value={colourOptions[states]}
       // onChange={() => console.log("変わったよ")}
     />
   );

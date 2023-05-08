@@ -18,10 +18,10 @@ const MyAreaTable = () => {
   }
 
   const [rows, setRows] = useState([
-    createData("うさぎ", "キャロット", 3, "どっか行った"),
-    createData("うさぎ", "ぴょんすけ", 0, "どりゃああああ"),
-    createData("うさぎ", "ミッフィー", 1, "ぽにょだよー"),
-    createData("うさぎ", "ピーター", 2, "ちくわの中身を覗いてしまった"),
+    createData("うさぎ", "キャロット", 6, "どっか行った"),
+    createData("うさぎ", "ぴょんすけ", 6, "どりゃああああ"),
+    createData("うさぎ", "ミッフィー", 6, "ぽにょだよー"),
+    createData("うさぎ", "ピーター", 6, "ちくわの中身を覗いてしまった"),
     createData("レッサーパンダ", "ラスカル", 1, ""),
     createData("レッサーパンダ", "メイ", 3, ""),
     createData("リスざる", "ジュリアン", 0, ""),
@@ -33,11 +33,11 @@ const MyAreaTable = () => {
   const handleChangeStatus = (e, index) => {
     //TODO: ここでe.target.valueを使うと、undefinedになる なぜ？
     //eで出してみると、data.tsxのcolourOptionsの中身が出てくる
-    console.log(e);
+    // console.log(e.value);
 
     const newRows = [...rows];
-    newRows[index].states = parseInt(e.target);
-    console.log("変わったよ");
+    newRows[index].states = e.value;
+    // console.log("変わったよ");
     setRows(newRows);
   };
 
@@ -66,7 +66,9 @@ const MyAreaTable = () => {
   }));
 
   return (
-    <div className='absolute right-0 mr-60 pt-24 pb-20 w-[1240px]'>
+    //デスクトップ用デバッグ用
+    // <div className='absolute right-0 mr-60 pt-24 pb-20 w-[1240px]'>
+    <div className='absolute right-0 mr-40 pt-24 pb-20 w-[1060px]'>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
@@ -95,10 +97,9 @@ const MyAreaTable = () => {
                     states={row.states}
                     handleChangeStatus={handleChangeStatus}
                     index={index}
-
                     // ここでonChangeを使っても、そもそも動かない
                     // onChange={(event) => handleChangeStatus(event, index)}
-                    // onChange={() => console.log("変わったよ")}
+                    // onChange={() => console.log("変わったよhoge")}
                   />
                 </StyledTableCell>
                 <StyledTableCell>
@@ -112,7 +113,8 @@ const MyAreaTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <div className='relative mt-10 ml-[1020px] mr-auto'>
+      {/* <div className='relative mt-10 ml-[1020px] mr-auto'> */}
+      <div className='relative mt-10 ml-[840px] mr-auto'>
         <Button
           variant='contained'
           style={{
