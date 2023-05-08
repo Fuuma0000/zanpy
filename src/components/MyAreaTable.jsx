@@ -23,7 +23,7 @@ const MyAreaTable = () => {
     createData("うさぎ", "ミッフィー", 6, "ぽにょだよー"),
     createData("うさぎ", "ピーター", 6, "ちくわの中身を覗いてしまった"),
     createData("レッサーパンダ", "ラスカル", 1, ""),
-    createData("レッサーパンダ", "メイ", 3, ""),
+    createData("レッサーパンダ", "メイ", 2, ""),
     createData("リスざる", "ジュリアン", 0, ""),
     createData("リスざる", "ジュリアン", 0, ""),
     createData("リスざる", "ジュリアン", 0, ""),
