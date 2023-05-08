@@ -31,7 +31,8 @@ const colourStyles = {
     const color = chroma(data.color);
     return {
       ...styles,
-      backgroundColor: isSelected ? color.alpha(0.5).css() : undefined, // 選択時の背景色を変更
+      ...dot(data.color),
+      backgroundColor: "white", // 選択時の背景色を変更
       color: "black",
       cursor: "default",
     };
