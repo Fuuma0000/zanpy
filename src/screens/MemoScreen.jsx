@@ -3,6 +3,8 @@ import Header from "./Header";
 import { useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const MemoScreen = () => {
   const navigate = useNavigate();
@@ -34,6 +36,7 @@ const MemoScreen = () => {
       {/* メモ本体を表示する部分 */}
       <div className='flex flex-col items-center mt-24'>
         {memos.map((memo, index) => (
+          // <div className='bg-white border-x-4 border-b-4 flex justify-between w-6/12 h-12'>
           <div className='bg-white border-x-4 border-b-4 flex justify-between w-[960px] h-12'>
             <div className='flex justify-center items-center text-xl font-black text-test ml-6'>
               {memo.text}
@@ -43,6 +46,32 @@ const MemoScreen = () => {
             </div>
           </div>
         ))}
+      </div>
+      {/* 追加用の入力欄とボタン */}
+      <div className='flex justify-center items-center mt-24'>
+        {/* <TextField
+          className='bg-white'
+          sx={{
+            //横幅を最大にする
+            width: "40%",
+          }}
+        /> */}
+        <input className='rounded-md w-[960px] h-12' type='text' />
+        <Button
+          variant='contained'
+          style={{
+            backgroundColor: "#A0E99E",
+            fontWeight: 900,
+            fontSize: 24,
+            letterSpacing: 14,
+            textIndent: 14,
+            marginLeft: 10,
+            // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+          }}
+          className='w-36 h-12 '
+        >
+          追加
+        </Button>
       </div>
     </>
   );
