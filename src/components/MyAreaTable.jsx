@@ -13,6 +13,7 @@ import DetailButton from "../components/DetailButton";
 import Button from "@mui/material/Button";
 
 const MyAreaTable = () => {
+  //keyを設定するための関数
   function createData(type, name, states, memos) {
     return { type, name, states, memos };
   }
