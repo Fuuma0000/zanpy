@@ -2,8 +2,11 @@ import React from "react";
 import Header from "./Header";
 import { useState } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useNavigate } from "react-router-dom";
 
 const MemoScreen = () => {
+  const navigate = useNavigate();
+
   //keyを設定するための関数
   function createName(text, time) {
     return { text, time };
@@ -22,7 +25,11 @@ const MemoScreen = () => {
       <Header />
       {/* 左の部分を押したら担当エリアの画面に戻る */}
       <button className='fixed top-48 left-40'>
-        <ArrowBackIosNewIcon className='text-test' sx={{ fontSize: "32px" }} />
+        <ArrowBackIosNewIcon
+          className='text-test'
+          sx={{ fontSize: "32px" }}
+          onClick={() => navigate("/my-area")}
+        />
       </button>
       {/* メモ本体を表示する部分 */}
       <div className='flex flex-col items-center mt-24'>
