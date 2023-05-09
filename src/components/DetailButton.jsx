@@ -9,7 +9,7 @@ const DetailButton = () => {
     <Button
       variant='contained'
       style={{
-        backgroundColor: "#706F6F",
+        backgroundColor: "#8F8F8F",
         fontWeight: 900,
         fontSize: 20,
       }}
