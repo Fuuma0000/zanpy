@@ -56,6 +56,7 @@ const MemoScreen = () => {
       </div>
       {/* 追加用の入力欄とボタン */}
       <div className='flex justify-center items-center mt-24'>
+        {/* TODO:どっちにするか決める */}
         {/* mui */}
         <TextField
           className='bg-white'
@@ -86,6 +87,7 @@ const MemoScreen = () => {
   );
 };
 
+// TODO:こっちでもあり
 //   return (
 //     <>
 //       <Header />
