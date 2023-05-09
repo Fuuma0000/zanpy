@@ -51,7 +51,7 @@ const LoginForm = () => {
   );
 };
 
-// export default LoginForm;
+export default LoginForm;
 
 //TODO:おもちゃ
 // import React, { useState } from "react";
