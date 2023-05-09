@@ -120,8 +120,8 @@ const types = [
 ];
 
 const status = [
-  { label: "怪我あり", id: 0 },
-  { label: "脱走中", id: 1 },
-  { label: "迷子保護", id: 2 },
-  { label: "無事", id: 3 },
+  { label: "無事", id: 0 },
+  { label: "怪我", id: 1 },
+  { label: "脱走", id: 2 },
+  { label: "不明", id: 3 },
 ];
