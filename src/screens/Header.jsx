@@ -20,7 +20,10 @@ const Header = () => {
         >
           担当エリア
         </button>
-        <button className='font-arial text-test font-black text-xl'>
+        <button
+          className='font-arial text-test font-black text-xl'
+          onClick={() => navigate("/search")}
+        >
           検索
         </button>
       </div>
