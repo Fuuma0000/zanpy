@@ -31,7 +31,7 @@ const MemoScreen = () => {
             <div className='flex justify-center items-center text-xl font-black text-test ml-6'>
               {memo.text}
             </div>
-            <div className='flex justify-center items-end text-sm font-medium text-my_gray'>
+            <div className='flex justify-center items-end text-sm font-medium text-my_gray mr-4'>
               {memo.time}
             </div>
           </div>
