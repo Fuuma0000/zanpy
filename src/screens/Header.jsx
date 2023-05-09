@@ -14,7 +14,10 @@ const Header = () => {
       </div>
       {/* 遷移ボタン */}
       <div className='flex space-x-8 mr-auto pt-3'>
-        <button className='font-arial text-test font-black text-xl ml-24'>
+        <button
+          className='font-arial text-test font-black text-xl ml-24'
+          onClick={() => navigate("/my-area")}
+        >
           担当エリア
         </button>
         <button className='font-arial text-test font-black text-xl'>
@@ -25,7 +28,7 @@ const Header = () => {
       <div className='flex bg-white rounded-2xl items-center'>
         <button
           className='font-arial text-test font-black text-xl px-3 py-3'
-          onClick={() => navigate("/ログイン")}
+          onClick={() => navigate("/login")}
         >
           ログアウト
         </button>
