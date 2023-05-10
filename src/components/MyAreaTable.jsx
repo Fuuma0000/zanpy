@@ -23,27 +23,63 @@ const MyAreaTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //keyを設定するための関数
-  function createData(area, type, name, states, memos) {
-    return { area, type, name, states, memos };
+  function createData(area, type, name, states, memos, memoTime) {
+    return { area, type, name, states, memos, memoTime };
   }
 
   const [rows, setRows] = useState([
-    createData("ふれあい", "うさぎ", "キャロット", 6, "どっか行った"),
-    createData("ふれあい", "うさぎ", "ぴょんすけ", 6, "どりゃああああ"),
-    createData("ふれあい", "うさぎ", "ミッフィー", 6, "ぽにょだよー"),
+    createData(
+      "ふれあい",
+      "うさぎ",
+      "キャロット",
+      6,
+      "どっか行った",
+      "10/10 10:00"
+    ),
+    createData(
+      "ふれあい",
+      "うさぎ",
+      "ぴょんすけ",
+      6,
+      "どりゃああああ",
+      "10/10 10:06"
+    ),
+    createData(
+      "ふれあい",
+      "うさぎ",
+      "ミッフィー",
+      6,
+      "ぽにょだよー",
+      "10/10 11:10"
+    ),
     createData(
       "ふれあい",
       "うさぎ",
       "ピーター",
       6,
-      "ちくわの中身を覗いてしまった"
+      "ちくわの中身を覗いてしまった",
+      "10/10 12:00"
     ),
-    createData("ふれあい", "レッサーパンダ", "ラスカル", 1, ""),
-    createData("ふれあい", "レッサーパンダ", "メイ", 2, ""),
-    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
-    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
-    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
-    createData("ふれあい", "リスざるwww", "ジュリアン", 0, ""),
+    createData(
+      "ふれあい",
+      "レッサーパンダ",
+      "ラスカル",
+      1,
+      "あたあああああああ",
+      "10/11 10:00"
+    ),
+    createData(
+      "ふれあい",
+      "レッサーパンダ",
+      "メイ",
+      2,
+      "しゃあああああああああああああああああああ",
+      "10/11 14:00"
+    ),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, "", "10/11 18:00"),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, "", "10/11 20:00"),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, "", "10/11 23:00"),
+    createData("ふれあい", "リスざるwww", "ジュリアン", 0, "", "10/14 10:00"),
   ]);
 
   const handleChangeStatus = (e, index) => {
@@ -138,6 +174,9 @@ const MyAreaTable = () => {
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <div style={{ marginRight: "auto" }}>{row.memos}</div>
+                    <div className='flex justify-center items-end text-sm font-medium text-gray-500 mr-4'>
+                      {row.memoTime}
+                    </div>
                     <button className=' bg-test rounded-full h-8 w-8 flex items-center justify-center'>
                       <ArrowForwardIosIcon
                         className='text-white'
