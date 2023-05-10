@@ -69,13 +69,14 @@ const MemoScreen = () => {
         <Button
           variant='contained'
           style={{
-            backgroundColor: "#A0E99E",
+            backgroundColor: "#88E186",
             fontWeight: 900,
             fontSize: 24,
-            letterSpacing: 14,
-            textIndent: 14,
+            letterSpacing: 4,
+            textIndent: 4,
             marginLeft: 10,
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            borderRadius: 10,
           }}
           className='w-36 h-12'
         >
