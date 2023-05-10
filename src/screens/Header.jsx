@@ -28,14 +28,12 @@ const Header = () => {
         </button>
       </div>
       {/* ログアウトボタン */}
-      <div className='flex bg-white rounded-2xl items-center'>
-        <button
-          className='font-arial text-test font-black text-xl px-3 py-3'
-          onClick={() => navigate("/login")}
-        >
-          ログアウト
-        </button>
-      </div>
+      <button
+        className='font-arial text-test bg-white shadow-2xl rounded-2xl font-black text-xl px-3 py-3'
+        onClick={() => navigate("/login")}
+      >
+        ログアウト
+      </button>
     </header>
   );
 };
