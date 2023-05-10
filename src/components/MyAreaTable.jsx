@@ -138,7 +138,7 @@ const MyAreaTable = () => {
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <div style={{ marginRight: "auto" }}>{row.memos}</div>
-                    <button className=' bg-main_green rounded-full h-8 w-8 flex items-center justify-center'>
+                    <button className=' bg-test rounded-full h-8 w-8 flex items-center justify-center'>
                       <ArrowForwardIosIcon
                         className='text-white'
                         sx={{ fontSize: "20px" }}
