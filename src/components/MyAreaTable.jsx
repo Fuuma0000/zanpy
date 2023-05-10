@@ -75,7 +75,7 @@ const MyAreaTable = () => {
   return (
     <div className='absolute right-0 mr-20 pt-24 pb-20 w-[73%] '>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label='customized table'>
+        <Table aria-label='customized table'>
           <TableHead>
             <TableRow>
               {!isMyAreaOpen && (
@@ -104,9 +104,7 @@ const MyAreaTable = () => {
               >
                 ステータス
               </StyledTableCell>
-              <StyledTableCell align='center' className=''>
-                メモ
-              </StyledTableCell>
+              <StyledTableCell align='center'>メモ</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
