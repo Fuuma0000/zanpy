@@ -73,13 +73,7 @@ const MyAreaTable = () => {
   }));
 
   return (
-    //これだと左の余白ができる
-    //両方とも2xlだから調整ができない
-
     <div className='absolute right-0 mr-20 pt-24 pb-20 w-[70%] pc:w-[72%] '>
-      {/* <div className='absolute right-0 mr-20 pt-24 pb-20 w-9/12'> */}
-      {/* こっちでもいいかも */}
-      {/* <div className='absolute right-0 mr-40 pt-24 pb-20 w-8/12'> */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
