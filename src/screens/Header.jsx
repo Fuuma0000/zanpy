@@ -45,6 +45,7 @@ const Header = () => {
           borderRadius: 10,
         }}
         className='w-36 h-12'
+        onClick={() => navigate("/login")}
       >
         ログアウト
       </Button>
