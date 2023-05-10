@@ -9,13 +9,42 @@ const SearchBox = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
 
   return (
-    <div className='fixed bg-white left-16 top-72 rounded-3xl shadow-xl'>
-      {/* 検索ボックス */}
-      <div className='flex flex-col gap-6 px-12 pt-2 pb-6  '>
-        {!isMyAreaOpen && (
+    <>
+      <div className='fixed bg-white left-16 top-72 rounded-3xl shadow-xl'>
+        {/* 検索ボックス */}
+        <div className='flex flex-col gap-6 px-12 pt-2 pb-6  '>
+          {!isMyAreaOpen && (
+            <Autocomplete
+              disablePortal
+              options={areae}
+              sx={{
+                width: 160,
+                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "black",
+                },
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label='エリア'
+                  InputLabelProps={{
+                    style: {
+                      color: "#706F6F",
+                      fontWeight: 900,
+                      //文字を封得させたいけど、外枠からはみ出る
+                      fontSize: 18,
+                      position: "relative",
+                      top: 28,
+                    },
+                  }}
+                />
+              )}
+            />
+          )}
+
           <Autocomplete
             disablePortal
-            options={areae}
+            options={types}
             sx={{
               width: 160,
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -25,117 +54,90 @@ const SearchBox = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                label='エリア'
+                label='種類'
+                InputLabelProps={{
+                  style: {
+                    color: "#706F6F",
+                    fontWeight: 900,
+                    //文字を封得させたいけど、外枠からはみ出る
+                    fontSize: 22,
+                    position: isMyAreaOpen && "relative",
+                    top: isMyAreaOpen && 28,
+                    //網ちょい右にしたいけど、leftをつけたら、検索ボックスがずれる
+                    // left: 5,
+                  },
+                }}
+              />
+            )}
+          />
+
+          <TextField
+            id='outlined-basic'
+            label='名前'
+            sx={{
+              width: 160,
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                borderColor: "black",
+              },
+            }}
+            variant='outlined'
+            InputLabelProps={{
+              style: {
+                color: "#706F6F",
+                fontWeight: 900,
+                //文字を封得させたいけど、外枠からはみ出る
+                fontSize: 22,
+              },
+            }}
+          />
+
+          <Autocomplete
+            disablePortal
+            options={status}
+            sx={{
+              width: 160,
+              "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                borderColor: "black",
+              },
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label='ステータス'
                 InputLabelProps={{
                   style: {
                     color: "#706F6F",
                     fontWeight: 900,
                     //文字を封得させたいけど、外枠からはみ出る
                     fontSize: 18,
-                    position: "relative",
-                    top: 28,
                   },
                 }}
               />
             )}
           />
-        )}
 
-        <Autocomplete
-          disablePortal
-          options={types}
-          sx={{
-            width: 160,
-            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "black",
-            },
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label='種類'
-              InputLabelProps={{
-                style: {
-                  color: "#706F6F",
-                  fontWeight: 900,
-                  //文字を封得させたいけど、外枠からはみ出る
-                  fontSize: 22,
-                  position: isMyAreaOpen && "relative",
-                  top: isMyAreaOpen && 28,
-                  //網ちょい右にしたいけど、leftをつけたら、検索ボックスがずれる
-                  // left: 5,
-                },
+          <div className='flex justify-center'>
+            <Button
+              variant='contained'
+              style={{
+                backgroundColor: "#88E186", //bg-main-green
+                fontWeight: 900,
+                fontSize: 24,
+                position: "relative",
+                top: 4,
+                paddingRight: 10,
+                letterSpacing: 4,
+                textIndent: 4,
+                borderRadius: 10,
               }}
-            />
-          )}
-        />
-
-        <TextField
-          id='outlined-basic'
-          label='名前'
-          sx={{
-            width: 160,
-            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "black",
-            },
-          }}
-          variant='outlined'
-          InputLabelProps={{
-            style: {
-              color: "#706F6F",
-              fontWeight: 900,
-              //文字を封得させたいけど、外枠からはみ出る
-              fontSize: 22,
-            },
-          }}
-        />
-
-        <Autocomplete
-          disablePortal
-          options={status}
-          sx={{
-            width: 160,
-            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "black",
-            },
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label='ステータス'
-              InputLabelProps={{
-                style: {
-                  color: "#706F6F",
-                  fontWeight: 900,
-                  //文字を封得させたいけど、外枠からはみ出る
-                  fontSize: 18,
-                },
-              }}
-            />
-          )}
-        />
-
-        <div className='flex justify-center'>
-          <Button
-            variant='contained'
-            style={{
-              backgroundColor: "#88E186", //bg-main-green
-              fontWeight: 900,
-              fontSize: 24,
-              position: "relative",
-              top: 4,
-              paddingRight: 10,
-              // letterSpacing: 8,
-              // textIndent: 8,
-              borderRadius: 10,
-            }}
-            className='w-36 h-12'
-          >
-            検索
-          </Button>
+              className='w-36 h-12'
+            >
+              検索
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
