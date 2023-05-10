@@ -40,14 +40,15 @@ const MyAreaTable = () => {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: "#E0E0E0",
-      color: theme.palette.common.black,
+      color: "#706F6F", //text-test
       fontWeight: 900,
       fontSize: 24,
       borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 24,
-      borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
+      borderRight: "1px solid #ddd",
+      // color: "#706F6F", //text-test
     },
   }));
 
@@ -116,7 +117,7 @@ const MyAreaTable = () => {
         <Button
           variant='contained'
           style={{
-            backgroundColor: "#A0E99E",
+            backgroundColor: "#88E186", //bg-main-green
             fontWeight: 900,
             fontSize: 36,
             letterSpacing: 14,
