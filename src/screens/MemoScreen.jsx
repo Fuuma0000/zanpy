@@ -56,7 +56,7 @@ const MemoScreen = () => {
         ))}
       </div>
       {/* 追加用の入力欄とボタン */}
-      <div className='flex justify-center items-center mt-24'>
+      <div className='flex justify-center items-center mt-24 mb-12'>
         {/* mui */}
         <TextField
           className='bg-white rounded-md shadow-md w-1/2 p-2'
