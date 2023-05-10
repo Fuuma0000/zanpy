@@ -14,6 +14,7 @@ module.exports = {
         sub_color: "#D9F8D9",
         hover_color: "#70CB6E",
         my_gray: "#8F8F8F",
+        material_white: "#CBCBCB",
       },
       screens: {
         pc: "1792px",

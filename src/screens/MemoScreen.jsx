@@ -32,10 +32,10 @@ const MemoScreen = () => {
     <>
       <Header />
       {/* 左の部分を押したら担当エリアの画面に戻る */}
-      <button className='fixed top-48 left-40'>
+      <button className='fixed top-48 left-40 bg-main_green rounded-full'>
         <ArrowBackIosNewIcon
-          className='text-test'
-          sx={{ fontSize: "32px" }}
+          className='text-white m-4'
+          sx={{ fontSize: "32px", fontWeight: "bold" }}
           onClick={() => navigate("/my-area")}
         />
       </button>
