@@ -20,13 +20,14 @@ const MemoScreen = () => {
     createName("治療完了", "2023/04/23 14:00"),
     createName("呼吸器に異常あり", "2023/04/23 14:30"),
     createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    // createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    // createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    // createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    // createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    // createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
   ]); // メモの配列を管理するstate
 
+  // TODO:こっちでもあり
   return (
     <>
       <Header />
@@ -42,13 +43,13 @@ const MemoScreen = () => {
       <div className='flex flex-col items-center mt-24'>
         {memos.map((memo, index) => (
           <div
-            className='bg-white border-x-4 border-b-4 flex justify-between w-6/12 h-12'
+            className='bg-white border-2 border-gray-300 rounded-md p-4 flex justify-between w-6/12 h-20 mb-2'
             key={index}
           >
-            <div className='flex justify-center items-center text-xl font-black text-test ml-6'>
+            <div className='flex justify-center items-center text-lg font-bold text-gray-700 ml-6'>
               {memo.text}
             </div>
-            <div className='flex justify-center items-end text-sm font-medium text-my_gray mr-4'>
+            <div className='flex justify-center items-end text-sm font-medium text-gray-500 mr-4'>
               {memo.time}
             </div>
           </div>
@@ -56,13 +57,11 @@ const MemoScreen = () => {
       </div>
       {/* 追加用の入力欄とボタン */}
       <div className='flex justify-center items-center mt-24'>
-        {/* TODO:どっちにするか決める */}
         {/* mui */}
         <TextField
-          className='bg-white'
+          className='bg-white rounded-md shadow-md w-1/2 p-2'
           sx={{
             width: "40%",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
           }}
         />
         {/* 自作 */}
@@ -76,9 +75,9 @@ const MemoScreen = () => {
             letterSpacing: 14,
             textIndent: 14,
             marginLeft: 10,
-            // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
           }}
-          className='w-36 h-12 '
+          className='w-36 h-12'
         >
           追加
         </Button>
@@ -86,64 +85,5 @@ const MemoScreen = () => {
     </>
   );
 };
-
-// TODO:こっちでもあり
-//   return (
-//     <>
-//       <Header />
-//       {/* 左の部分を押したら担当エリアの画面に戻る */}
-//       <button className='fixed top-48 left-40'>
-//         <ArrowBackIosNewIcon
-//           className='text-test'
-//           sx={{ fontSize: "32px" }}
-//           onClick={() => navigate("/my-area")}
-//         />
-//       </button>
-//       {/* メモ本体を表示する部分 */}
-//       <div className='flex flex-col items-center mt-24'>
-//         {memos.map((memo, index) => (
-//           <div
-//             className='bg-white border-2 border-gray-300 rounded-md p-4 flex justify-between w-6/12 h-20 mb-2'
-//             key={index}
-//           >
-//             <div className='flex justify-center items-center text-lg font-bold text-gray-700 ml-6'>
-//               {memo.text}
-//             </div>
-//             <div className='flex justify-center items-end text-sm font-medium text-gray-500 mr-4'>
-//               {memo.time}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//       {/* 追加用の入力欄とボタン */}
-//       <div className='flex justify-center items-center mt-24'>
-//         {/* mui */}
-//         <TextField
-//           className='bg-white rounded-md shadow-md w-1/2 p-2'
-//           sx={{
-//             width: "40%",
-//           }}
-//         />
-//         {/* 自作 */}
-//         {/* <input className='rounded-md w-5/12 h-12' type='text' /> */}
-//         <Button
-//           variant='contained'
-//           style={{
-//             backgroundColor: "#A0E99E",
-//             fontWeight: 900,
-//             fontSize: 24,
-//             letterSpacing: 14,
-//             textIndent: 14,
-//             marginLeft: 10,
-//             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-//           }}
-//           className='w-36 h-12'
-//         >
-//           追加
-//         </Button>
-//       </div>
-//     </>
-//   );
-// };
 
 export default MemoScreen;
