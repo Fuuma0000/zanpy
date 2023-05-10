@@ -13,9 +13,11 @@ import DetailButton from "../components/DetailButton";
 import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
+import Modal from "./Modal";
 
 const MyAreaTable = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   //keyを設定するための関数
   function createData(area, type, name, states, memos) {
@@ -45,6 +47,10 @@ const MyAreaTable = () => {
     const newRows = [...rows];
     newRows[index].states = e.value;
     setRows(newRows);
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -149,10 +155,12 @@ const MyAreaTable = () => {
             borderRadius: 10,
           }}
           className='w-56 h-16'
+          onClick={handleOpenModal}
         >
           登録
         </Button>
       </div>
+      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
 };
