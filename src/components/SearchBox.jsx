@@ -86,7 +86,7 @@ const SearchBox = () => {
           <Button
             variant='contained'
             style={{
-              backgroundColor: "#A0E99E",
+              backgroundColor: "#88E186", //bg-main-green
               fontWeight: 900,
               fontSize: 24,
               position: "relative",
