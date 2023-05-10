@@ -17,7 +17,7 @@ const SearchBox = () => {
             disablePortal
             options={areae}
             sx={{
-              width: 200,
+              width: 160,
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                 borderColor: "black",
               },
@@ -45,7 +45,7 @@ const SearchBox = () => {
           disablePortal
           options={types}
           sx={{
-            width: 200,
+            width: 160,
             "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
               borderColor: "black",
             },
@@ -74,7 +74,7 @@ const SearchBox = () => {
           id='outlined-basic'
           label='名前'
           sx={{
-            width: 200,
+            width: 160,
             "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
               borderColor: "black",
             },
@@ -94,7 +94,7 @@ const SearchBox = () => {
           disablePortal
           options={status}
           sx={{
-            width: 200,
+            width: 160,
             "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
               borderColor: "black",
             },
@@ -125,6 +125,9 @@ const SearchBox = () => {
               position: "relative",
               top: 4,
               paddingRight: 10,
+              // letterSpacing: 8,
+              // textIndent: 8,
+              borderRadius: 10,
             }}
             className='w-36 h-12'
           >
