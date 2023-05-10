@@ -1,6 +1,7 @@
 import React from "react";
 import LogoImg from "../assets/img/zanpy-logo.png";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 import "../index.css";
 
 const Header = () => {
@@ -28,12 +29,25 @@ const Header = () => {
         </button>
       </div>
       {/* ログアウトボタン */}
-      <button
+      {/* <button
         className='font-arial text-test bg-white shadow-2xl rounded-2xl font-black text-xl px-3 py-3'
         onClick={() => navigate("/login")}
       >
         ログアウト
-      </button>
+      </button> */}
+      <Button
+        variant='contained'
+        style={{
+          color: "#706F6F", //test
+          backgroundColor: "#FFFFFF",
+          fontWeight: 900,
+          fontSize: 18,
+          borderRadius: 10,
+        }}
+        className='w-36 h-12'
+      >
+        ログアウト
+      </Button>
     </header>
   );
 };
