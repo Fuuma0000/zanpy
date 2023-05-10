@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -38,13 +39,29 @@ const LoginForm = () => {
               className='w-full rounded border bg-form px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring'
             />
           </div>
-          <button
+          {/* <button
             className='block mx-auto rounded-lg w-5/12 bg-main_green shadow-2xl px-4 py-3 mt-10 text-center text-lg font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-hover_color focus-visible:ring
           '
             onClick={() => navigate("/my-area")}
           >
             ログイン
-          </button>
+          </button> */}
+          <Button
+            variant='contained'
+            style={{
+              backgroundColor: "#88E186", //bg-main-green
+              fontWeight: 900,
+              fontSize: 24,
+              top: 20,
+              paddingRight: 10,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+            className='w-6/12 '
+            onClick={() => navigate("/my-area")}
+          >
+            登録
+          </Button>
         </div>
       </form>
     </div>
