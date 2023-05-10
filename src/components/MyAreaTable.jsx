@@ -13,10 +13,13 @@ import DetailButton from "../components/DetailButton";
 import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
 const MyAreaTable = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   //keyを設定するための関数
@@ -135,7 +138,13 @@ const MyAreaTable = () => {
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <div style={{ marginRight: "auto" }}>{row.memos}</div>
-                    <DetailButton />
+                    <button className=' bg-main_green rounded-full h-8 w-8 flex items-center justify-center'>
+                      <ArrowForwardIosIcon
+                        className='text-white'
+                        sx={{ fontSize: "20px" }}
+                        onClick={() => navigate("/memo")}
+                      />
+                    </button>
                   </div>
                 </StyledTableCell>
               </StyledTableRow>
