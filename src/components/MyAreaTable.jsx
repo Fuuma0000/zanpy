@@ -11,24 +11,34 @@ import { useState } from "react";
 import StatusSelect from "./StatusSelect";
 import DetailButton from "../components/DetailButton";
 import Button from "@mui/material/Button";
+import { useRecoilValue } from "recoil";
+import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 
 const MyAreaTable = () => {
+  const isMyAreaOpen = useRecoilValue(myAreaOpenState);
+
   //keyを設定するための関数
-  function createData(type, name, states, memos) {
-    return { type, name, states, memos };
+  function createData(area, type, name, states, memos) {
+    return { area, type, name, states, memos };
   }
 
   const [rows, setRows] = useState([
-    createData("うさぎ", "キャロット", 6, "どっか行った"),
-    createData("うさぎ", "ぴょんすけ", 6, "どりゃああああ"),
-    createData("うさぎ", "ミッフィー", 6, "ぽにょだよー"),
-    createData("うさぎ", "ピーター", 6, "ちくわの中身を覗いてしまった"),
-    createData("レッサーパンダ", "ラスカル", 1, ""),
-    createData("レッサーパンダ", "メイ", 2, ""),
-    createData("リスざる", "ジュリアン", 0, ""),
-    createData("リスざる", "ジュリアン", 0, ""),
-    createData("リスざる", "ジュリアン", 0, ""),
-    createData("リスざるwww", "ジュリアン", 0, ""),
+    createData("ふれあい", "うさぎ", "キャロット", 6, "どっか行った"),
+    createData("ふれあい", "うさぎ", "ぴょんすけ", 6, "どりゃああああ"),
+    createData("ふれあい", "うさぎ", "ミッフィー", 6, "ぽにょだよー"),
+    createData(
+      "ふれあい",
+      "うさぎ",
+      "ピーター",
+      6,
+      "ちくわの中身を覗いてしまった"
+    ),
+    createData("ふれあい", "レッサーパンダ", "ラスカル", 1, ""),
+    createData("ふれあい", "レッサーパンダ", "メイ", 2, ""),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
+    createData("ふれあい", "リスざる", "ジュリアン", 0, ""),
+    createData("ふれあい", "リスざるwww", "ジュリアン", 0, ""),
   ]);
 
   const handleChangeStatus = (e, index) => {
@@ -74,6 +84,11 @@ const MyAreaTable = () => {
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
             <TableRow>
+              {!isMyAreaOpen && (
+                <StyledTableCell align='center' className='w-2/12'>
+                  エリア
+                </StyledTableCell>
+              )}
               <StyledTableCell align='center' className='w-2/12'>
                 種類
               </StyledTableCell>
@@ -91,6 +106,11 @@ const MyAreaTable = () => {
           <TableBody>
             {rows.map((row, index) => (
               <StyledTableRow key={index}>
+                {!isMyAreaOpen && (
+                  <StyledTableCell component='th' scope='row' align='center'>
+                    {row.area}
+                  </StyledTableCell>
+                )}
                 <StyledTableCell component='th' scope='row' align='center'>
                   {row.type}
                 </StyledTableCell>
