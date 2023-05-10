@@ -52,11 +52,11 @@ const MyAreaTable = () => {
       backgroundColor: "#E0E0E0",
       color: "#706F6F", //text-test
       fontWeight: 900,
-      fontSize: 24,
+      fontSize: 20,
       borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 24,
+      fontSize: 20,
       borderRight: "1px solid #ddd",
       // color: "#706F6F", //text-test
     },
@@ -73,23 +73,35 @@ const MyAreaTable = () => {
   }));
 
   return (
-    <div className='absolute right-0 mr-20 pt-24 pb-20 w-[70%] pc:w-[72%] '>
+    <div className='absolute right-0 mr-20 pt-24 pb-20 w-[75%] '>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label='customized table'>
           <TableHead>
             <TableRow>
               {!isMyAreaOpen && (
-                <StyledTableCell align='center' className='w-2/12'>
+                <StyledTableCell
+                  align='center'
+                  className={isMyAreaOpen ? "w-2/12" : "w-parcent-12"}
+                >
                   エリア
                 </StyledTableCell>
               )}
-              <StyledTableCell align='center' className='w-2/12'>
+              <StyledTableCell
+                align='center'
+                className={isMyAreaOpen ? "w-2/12" : "w-parcent-12"}
+              >
                 種類
               </StyledTableCell>
-              <StyledTableCell align='center' className='w-2/12'>
+              <StyledTableCell
+                align='center'
+                className={isMyAreaOpen ? "w-2/12" : "w-parcent-12"}
+              >
                 名前
               </StyledTableCell>
-              <StyledTableCell align='center' className='w-2/12'>
+              <StyledTableCell
+                align='center'
+                className={isMyAreaOpen ? "w-2/12" : "w-parcent-12"}
+              >
                 ステータス
               </StyledTableCell>
               <StyledTableCell align='center' className=''>
@@ -136,6 +148,7 @@ const MyAreaTable = () => {
             fontSize: 36,
             letterSpacing: 14,
             textIndent: 14,
+            borderRadius: 10,
           }}
           className='w-56 h-16'
         >

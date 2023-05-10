@@ -18,6 +18,9 @@ module.exports = {
       screens: {
         pc: "1792px",
       },
+      width: {
+        "parcent-12": "14%",
+      },
     },
   },
   plugins: [],
