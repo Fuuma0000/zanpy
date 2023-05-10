@@ -12,6 +12,7 @@ const DetailButton = () => {
         backgroundColor: "#8F8F8F",
         fontWeight: 900,
         fontSize: 20,
+        borderRadius: 10,
       }}
       className='w-24 h-10'
       // className='w-40 h-14'

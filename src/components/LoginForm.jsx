@@ -49,6 +49,7 @@ const LoginForm = () => {
               paddingRight: 10,
               marginLeft: "auto",
               marginRight: "auto",
+              borderRadius: 10,
             }}
             className='w-6/12 '
             onClick={() => navigate("/my-area")}
