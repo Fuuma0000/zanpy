@@ -53,7 +53,7 @@ const LoginForm = () => {
             className='w-6/12 '
             onClick={() => navigate("/my-area")}
           >
-            登録
+            ログイン
           </Button>
         </div>
       </form>
