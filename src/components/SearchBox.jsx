@@ -9,8 +9,13 @@ const SearchBox = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
 
   return (
-    <>
-      <div className='fixed bg-white left-16 top-72 rounded-3xl shadow-xl'>
+    <div className='fixed left-16 top-64'>
+      {isMyAreaOpen && (
+        <p className='flex items-center justify-center font-black text-test mb-4 text-xl tracking-widest'>
+          担当エリア内検索
+        </p>
+      )}
+      <div className=' bg-white rounded-3xl shadow-xl'>
         {/* 検索ボックス */}
         <div className='flex flex-col gap-6 px-12 pt-2 pb-6  '>
           {!isMyAreaOpen && (
@@ -137,7 +142,7 @@ const SearchBox = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
