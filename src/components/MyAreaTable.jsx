@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { colourOptions } from "../data.tsx";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 
@@ -20,8 +21,6 @@ const MyAreaTable = ({ rows, setRows }) => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  //keyを設定するための関数
 
   const handleChangeStatus = (e, index) => {
     const newRows = [...rows];
@@ -35,26 +34,22 @@ const MyAreaTable = ({ rows, setRows }) => {
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: "#E0E0E0",
+      backgroundColor: "#E0E0E0", //灰色
       color: "#706F6F", //text-test
       fontWeight: 900,
       fontSize: 20,
-      borderRight: "1px solid #ddd", // 右側に縦のボーダーを追加
+      borderRight: "1px solid #ddd",
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 20,
       borderRight: "1px solid #ddd",
-      // color: "#706F6F", //text-test
     },
   }));
 
+  //テーブルを偶数行と奇数行で色分けする
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(even)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    "&:last-child td, &:last-child th": {
-      border: 0,
+      backgroundColor: theme.palette.action.hover, //グレー
     },
   }));
 
@@ -96,28 +91,37 @@ const MyAreaTable = ({ rows, setRows }) => {
           <TableBody>
             {rows.map((row, index) => (
               <StyledTableRow key={index}>
+                {/* マイエリアならエリアを表示しない */}
                 {!isMyAreaOpen && (
                   <StyledTableCell component='th' scope='row' align='center'>
                     {row.area}
                   </StyledTableCell>
                 )}
+                {/* 種族 */}
                 <StyledTableCell component='th' scope='row' align='center'>
                   {row.type}
                 </StyledTableCell>
+                {/* 名前 */}
                 <StyledTableCell align='center'>{row.name}</StyledTableCell>
+                {/* ステータス */}
                 <StyledTableCell align='center'>
                   <StatusSelect
                     states={row.states}
                     handleChangeStatus={handleChangeStatus}
                     index={index}
+                    isMyAreaOpen={isMyAreaOpen}
                   />
                 </StyledTableCell>
+                {/* メモ */}
                 <StyledTableCell>
                   <div style={{ display: "flex", alignItems: "center" }}>
+                    {/* メモ内容 */}
                     <div style={{ marginRight: "auto" }}>{row.memos}</div>
+                    {/* 時間 */}
                     <div className='flex justify-center items-end text-sm font-medium text-gray-500 mr-4'>
                       {row.memoTime}
                     </div>
+                    {/* 詳細ボタン */}
                     <button className=' bg-test rounded-full h-8 w-8 flex items-center justify-center'>
                       <ArrowForwardIosIcon
                         className='text-white'
@@ -132,6 +136,7 @@ const MyAreaTable = ({ rows, setRows }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      {/* マイエリアなら登録ボタンを表示する */}
       {isMyAreaOpen && (
         <div className='relative ml-auto mr-0 mt-10 flex justify-end'>
           <Button
@@ -151,6 +156,7 @@ const MyAreaTable = ({ rows, setRows }) => {
           </Button>
         </div>
       )}
+      {/* 登録ボタンを押すとモーダルが開く */}
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );

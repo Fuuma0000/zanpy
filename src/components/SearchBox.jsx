@@ -10,17 +10,19 @@ const SearchBox = () => {
 
   return (
     <div className='fixed left-16 top-64'>
+      {/* マイエリアの時のみ文字を表示する */}
       {isMyAreaOpen && (
         <p className='flex items-center justify-center font-black text-test mb-4 text-xl tracking-widest'>
           担当エリア内検索
         </p>
       )}
+      {/* ボックスを囲むやつ */}
       <div className=' bg-white rounded-3xl shadow-xl'>
-        {/* 検索ボックス */}
+        {/* ボックスの中身 */}
         <div className='flex flex-col gap-6 px-12 pt-2 pb-6  '>
+          {/* マイエリアじゃない時のみエリア検索を表示する */}
           {!isMyAreaOpen && (
             <Autocomplete
-              disablePortal
               options={areae}
               sx={{
                 width: 160,
@@ -36,7 +38,7 @@ const SearchBox = () => {
                     style: {
                       color: "#706F6F",
                       fontWeight: 900,
-                      //文字を封得させたいけど、外枠からはみ出る
+                      //文字を太くさせたいけど、外枠からはみ出る
                       fontSize: 18,
                       position: "relative",
                       top: 28,
@@ -47,8 +49,8 @@ const SearchBox = () => {
             />
           )}
 
+          {/* 種類検索 */}
           <Autocomplete
-            disablePortal
             options={types}
             sx={{
               width: 160,
@@ -64,18 +66,17 @@ const SearchBox = () => {
                   style: {
                     color: "#706F6F",
                     fontWeight: 900,
-                    //文字を封得させたいけど、外枠からはみ出る
+                    //文字を太くさせたいけど、外枠からはみ出る
                     fontSize: 22,
                     position: isMyAreaOpen && "relative",
                     top: isMyAreaOpen && 28,
-                    //網ちょい右にしたいけど、leftをつけたら、検索ボックスがずれる
-                    // left: 5,
                   },
                 }}
               />
             )}
           />
 
+          {/* 名前検索 */}
           <TextField
             id='outlined-basic'
             label='名前'
@@ -90,14 +91,14 @@ const SearchBox = () => {
               style: {
                 color: "#706F6F",
                 fontWeight: 900,
-                //文字を封得させたいけど、外枠からはみ出る
+                //文字を太くさせたいけど、外枠からはみ出る
                 fontSize: 22,
               },
             }}
           />
 
+          {/* ステータス検索 */}
           <Autocomplete
-            disablePortal
             options={status}
             sx={{
               width: 160,
@@ -113,7 +114,7 @@ const SearchBox = () => {
                   style: {
                     color: "#706F6F",
                     fontWeight: 900,
-                    //文字を封得させたいけど、外枠からはみ出る
+                    //文字を太くさせたいけど、外枠からはみ出る
                     fontSize: 18,
                   },
                 }}
@@ -121,6 +122,7 @@ const SearchBox = () => {
             )}
           />
 
+          {/* 検索ボタン */}
           <div className='flex justify-center'>
             <Button
               variant='contained'

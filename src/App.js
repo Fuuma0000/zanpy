@@ -7,10 +7,12 @@ import SearchScreen from "./screens/SearchScreen";
 import { RecoilRoot } from "recoil";
 
 function App() {
+  //keyを設定するための関数
   function createData(area, type, name, states, memos, memoTime) {
     return { area, type, name, states, memos, memoTime };
   }
 
+  // メモ画面に行ってもデータが残っているようにするためにapp.jsにstateを設定
   const [rows, setRows] = useState([
     createData(
       "ふれあい",

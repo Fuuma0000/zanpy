@@ -11,9 +11,9 @@ const MyAreaScreen = ({ rows, setRows }) => {
 
   return (
     <>
-      <Header />
-      <SearchBox />
-      <MyAreaTable rows={rows} setRows={setRows} />
+      <Header></Header>
+      <SearchBox></SearchBox>
+      <MyAreaTable rows={rows} setRows={setRows}></MyAreaTable>
     </>
   );
 };

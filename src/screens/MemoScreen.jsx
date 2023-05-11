@@ -15,6 +15,7 @@ const MemoScreen = () => {
   }
 
   //Datetimeでやると思うけど、とりあえずは文字列で
+  // メモの配列を管理するstate
   const [memos, setMemos] = useState([
     createName("右足と右手首に怪我あり", "2023/04/23 12:00"),
     createName("治療完了", "2023/04/23 14:00"),
@@ -25,13 +26,12 @@ const MemoScreen = () => {
     createName("ただのしゃっくりでした", "2023/04/23 15:02"),
     createName("ただのしゃっくりでした", "2023/04/23 15:02"),
     createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-  ]); // メモの配列を管理するstate
+  ]);
 
-  // TODO:こっちでもあり
   return (
     <>
       <Header />
-      {/* 左の部分を押したら担当エリアの画面に戻る */}
+      {/* メモから担当エリアの画面に戻るボタン */}
       <button className='fixed top-48 left-40 bg-main_green rounded-full'>
         <ArrowBackIosNewIcon
           className='text-white m-4'
@@ -57,15 +57,12 @@ const MemoScreen = () => {
       </div>
       {/* 追加用の入力欄とボタン */}
       <div className='flex justify-center items-center mt-24 mb-12'>
-        {/* mui */}
         <TextField
           className='bg-white rounded-md shadow-md w-1/2 p-2'
           sx={{
             width: "40%",
           }}
         />
-        {/* 自作 */}
-        {/* <input className='rounded-md w-5/12 h-12' type='text' /> */}
         <Button
           variant='contained'
           style={{

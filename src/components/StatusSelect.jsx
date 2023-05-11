@@ -1,9 +1,9 @@
 import React from "react";
-import chroma from "chroma-js";
 
 import { colourOptions } from "../data.tsx";
 import Select from "react-select";
 
+// ステータスの文字の左に表示するドット
 const dot = (color = "transparent") => ({
   alignItems: "center",
   display: "flex",
@@ -20,23 +20,17 @@ const dot = (color = "transparent") => ({
 });
 
 const colourStyles = {
-  control: (styles) => {
-    const updatedStyles = {
-      ...styles,
-      backgroundColor: "white",
-    };
-    return updatedStyles;
-  },
-  option: (styles, { data, isFocused, isSelected }) => {
-    const color = chroma(data.color);
+  // 選択するところのスタイル
+  option: (styles, { data }) => {
     return {
       ...styles,
       ...dot(data.color),
-      backgroundColor: "white", // 選択時の背景色を変更
+      backgroundColor: "white",
       color: "black",
       cursor: "default",
     };
   },
+  // 一覧で表示されるところのスタイル
   singleValue: (styles, { data }) => {
     const updatedStyles = {
       ...styles,
@@ -46,13 +40,14 @@ const colourStyles = {
   },
 };
 
-const StatusSelect = ({ states, handleChangeStatus, index }) => {
+const StatusSelect = ({ states, handleChangeStatus, index, isMyAreaOpen }) => {
   return (
     <Select
       options={colourOptions}
       styles={colourStyles}
       onChange={(e) => handleChangeStatus(e, index)}
       value={colourOptions[states]}
+      isDisabled={!isMyAreaOpen}
     />
   );
 };
