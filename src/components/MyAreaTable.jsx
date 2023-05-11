@@ -133,23 +133,25 @@ const MyAreaTable = ({ rows, setRows }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <div className='relative ml-auto mr-0 mt-10 flex justify-end'>
-        <Button
-          variant='contained'
-          style={{
-            backgroundColor: "#88E186", //bg-main-green
-            fontWeight: 900,
-            fontSize: 36,
-            letterSpacing: 14,
-            textIndent: 14,
-            borderRadius: 10,
-          }}
-          className='w-56 h-16'
-          onClick={handleOpenModal}
-        >
-          登録
-        </Button>
-      </div>
+      {isMyAreaOpen && (
+        <div className='relative ml-auto mr-0 mt-10 flex justify-end'>
+          <Button
+            variant='contained'
+            style={{
+              backgroundColor: "#88E186", //bg-main-green
+              fontWeight: 900,
+              fontSize: 36,
+              letterSpacing: 14,
+              textIndent: 14,
+              borderRadius: 10,
+            }}
+            className='w-56 h-16'
+            onClick={handleOpenModal}
+          >
+            登録
+          </Button>
+        </div>
+      )}
       {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
