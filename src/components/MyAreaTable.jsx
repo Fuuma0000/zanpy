@@ -9,7 +9,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useState } from "react";
 import StatusSelect from "./StatusSelect";
-import DetailButton from "../components/DetailButton";
 import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
