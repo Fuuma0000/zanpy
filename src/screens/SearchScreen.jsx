@@ -4,8 +4,9 @@ import SearchBox from "../components/SearchBox";
 import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import MyAreaTable from "../components/MyAreaTable";
+import { useState } from "react";
 
-const SearchScreen = () => {
+const SearchScreen = ({ rows, setRows }) => {
   const setMyAreaOpen = useSetRecoilState(myAreaOpenState);
   //初回レンダリング時にmyAreaOpenStateをfalseにする
   setMyAreaOpen(false);
@@ -16,7 +17,7 @@ const SearchScreen = () => {
       {/* 検索ボックス */}
       <SearchBox></SearchBox>
       {/* 検索結果テーブル */}
-      <MyAreaTable></MyAreaTable>
+      <MyAreaTable rows={rows} setRows={setRows}></MyAreaTable>
     </>
   );
 };
