@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -13,7 +13,6 @@ import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { colourOptions } from "../data.tsx";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 

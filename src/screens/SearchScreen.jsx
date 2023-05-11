@@ -4,7 +4,6 @@ import SearchBox from "../components/SearchBox";
 import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import MyAreaTable from "../components/MyAreaTable";
-import { useState } from "react";
 
 const SearchScreen = ({ rows, setRows }) => {
   const setMyAreaOpen = useSetRecoilState(myAreaOpenState);

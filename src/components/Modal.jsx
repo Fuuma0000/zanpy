@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import React from "react";
+import { Button } from "@mui/material";
 
 // 登録時のモーダル
 const Modal = ({ setIsModalOpen }) => {

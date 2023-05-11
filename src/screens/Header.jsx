@@ -2,7 +2,6 @@ import React from "react";
 import LogoImg from "../assets/img/zanpy-logo.png";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import "../index.css";
 
 const Header = () => {
   const navigate = useNavigate();
