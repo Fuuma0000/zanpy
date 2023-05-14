@@ -1,16 +1,19 @@
 import { atom } from "recoil";
 
 //keyを設定するための関数
-function createData(
-  ani_id,
-  area_id,
-  ani_type,
-  ani_name,
-  status_id,
-  memos,
-  memoTime
-) {
-  return { ani_id, area_id, ani_type, ani_name, status_id, memos, memoTime };
+// function createData(
+//   ani_id,
+//   area_id,
+//   ani_type,
+//   ani_name,
+//   status_id,
+//   memos,
+//   memoTime
+// ) {
+//   return { ani_id, area_id, ani_type, ani_name, status_id, memos, memoTime };
+// }
+function createData(area, type, name, states, memos, memoTime) {
+  return { area, type, name, states, memos, memoTime };
 }
 
 // 担当エリアの状態を管理する
