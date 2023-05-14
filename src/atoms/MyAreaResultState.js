@@ -22,64 +22,15 @@ function createData(area, type, name, states, memos, memoTime) {
 export const myAreaResultState = atom({
   key: "myAreaResultState",
   default: [
-    createData(
-      "ふれあい",
-      "うさぎ",
-      "キャロット",
-      null,
-      "どっか行った",
-      "10/10 10:00"
-    ),
-    createData(
-      "ふれあい",
-      "うさぎ",
-      "ぴょんすけ",
-      null,
-      "どりゃああああ",
-      "10/10 10:06"
-    ),
-    createData(
-      "ふれあい",
-      "うさぎ",
-      "ミッフィー",
-      null,
-      "ぽにょだよー",
-      "10/10 11:10"
-    ),
-    createData(
-      "ふれあい",
-      "うさぎ",
-      "ピーター",
-      null,
-      "ちくわの中身を覗いてしまった",
-      "10/10 12:00"
-    ),
-    createData(
-      "ふれあい",
-      "レッサーパンダ",
-      "ラスカル",
-      null,
-      "",
-      "10/11 10:00"
-    ),
-    createData(
-      "ふれあい",
-      "レッサーパンダ",
-      "メイ",
-      null,
-      "お腹すいた",
-      "10/11 14:00"
-    ),
-    createData("ふれあい", "リスざる", "ジュリアン", null, "", "10/11 18:00"),
-    createData("ふれあい", "リスざる", "ジュリアン", null, "", "10/11 20:00"),
-    createData("ふれあい", "リスざる", "ジュリアン", null, "", "10/11 23:00"),
-    createData(
-      "ふれあい",
-      "リスざるwww",
-      "ジュリアン",
-      null,
-      "",
-      "10/14 10:00"
-    ),
+    createData("ふれあい", "うさぎ", "キャロット", null, "", ""),
+    createData("ふれあい", "うさぎ", "ぴょんすけ", null, "", ""),
+    createData("ふれあい", "うさぎ", "ミッフィー", null, "", ""),
+    createData("ふれあい", "うさぎ", "ピーター", null, "", ""),
+    createData("ふれあい", "レッサーパンダ", "ラスカル", null, "", ""),
+    createData("ふれあい", "レッサーパンダ", "メイ", null, "", ""),
+    createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
+    createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
+    createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
+    createData("ふれあい", "リスざるwww", "ジュリアン", null, "", ""),
   ],
 });
