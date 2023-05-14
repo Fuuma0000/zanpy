@@ -33,6 +33,19 @@ const MyAreaTable = () => {
     setIsModalOpen(true);
   };
 
+  //ステータスを変更した時に呼ばれる関数
+  const handleChangeStatus = (event, index) => {
+    const newStatus = event.value;
+    //isMyAreaOpenがtrueの時はmyAreaResultを更新する
+    if (isMyAreaOpen) {
+      const newMyAreaResult = [...myAreaResult];
+      // オブジェクトを拡張可能に設定
+      newMyAreaResult[index] = Object.assign({}, newMyAreaResult[index]);
+      newMyAreaResult[index].states = parseInt(newStatus);
+      setMyAreaResult(newMyAreaResult);
+    }
+  };
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: "#E0E0E0", //灰色
