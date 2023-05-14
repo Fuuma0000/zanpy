@@ -5,28 +5,42 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { memosState } from "../atoms/MemosState";
 
 const MemoScreen = () => {
   const navigate = useNavigate();
+  const [memos, setMemos] = useRecoilState(memosState);
+  const [inputText, setInputText] = useState("");
 
-  //keyを設定するための関数
-  function createName(text, time) {
-    return { text, time };
-  }
+  const addMemo = () => {
+    const newMemos = [...memos];
+    newMemos.push({
+      text: inputText,
+      time: "2023/04/23 15:02",
+    });
+    setMemos(newMemos);
+    setInputText("");
+  };
 
-  //Datetimeでやると思うけど、とりあえずは文字列で
-  // メモの配列を管理するstate
-  const [memos, setMemos] = useState([
-    createName("右足と右手首に怪我あり", "2023/04/23 12:00"),
-    createName("治療完了", "2023/04/23 14:00"),
-    createName("呼吸器に異常あり", "2023/04/23 14:30"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-    createName("ただのしゃっくりでした", "2023/04/23 15:02"),
-  ]);
+  // //keyを設定するための関数
+  // function createName(text, time) {
+  //   return { text, time };
+  // }
+
+  // //Datetimeでやると思うけど、とりあえずは文字列で
+  // // メモの配列を管理するstate
+  // const [memos, setMemos] = useState([
+  //   createName("右足と右手首に怪我あり", "2023/04/23 12:00"),
+  //   createName("治療完了", "2023/04/23 14:00"),
+  //   createName("呼吸器に異常あり", "2023/04/23 14:30"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  //   createName("ただのしゃっくりでした", "2023/04/23 15:02"),
+  // ]);
 
   return (
     <>
@@ -62,6 +76,8 @@ const MemoScreen = () => {
           sx={{
             width: "40%",
           }}
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
         />
         <Button
           variant='contained'
@@ -76,6 +92,7 @@ const MemoScreen = () => {
             borderRadius: 10,
           }}
           className='w-36 h-12'
+          onClick={addMemo}
         >
           追加
         </Button>
