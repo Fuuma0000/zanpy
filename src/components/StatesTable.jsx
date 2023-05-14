@@ -25,6 +25,9 @@ const MyAreaTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchResult, setSearchResult] = useRecoilState(searchResultState);
   const [myAreaResult, setMyAreaResult] = useRecoilState(myAreaResultState);
+  // isMyAreaOpenがtrueの時はmyAreaResultを表示する
+  // isMyAreaOpenがfalseの時はsearchResultを表示する
+  const row = isMyAreaOpen ? myAreaResult : searchResult;
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -89,7 +92,7 @@ const MyAreaTable = () => {
           <TableBody>
             {/* searchResultが0の時は何も表示しない */}
             {/* TODO:myAreaかの判定 */}
-            {myAreaResult.length === 0 && (
+            {row.length === 0 && (
               <StyledTableRow>
                 <StyledTableCell
                   component='th'
@@ -105,7 +108,7 @@ const MyAreaTable = () => {
                 </StyledTableCell>
               </StyledTableRow>
             )}
-            {myAreaResult.map((row, index) => (
+            {row.map((row, index) => (
               <StyledTableRow key={index}>
                 {/* マイエリアならエリアを表示しない */}
                 {!isMyAreaOpen && (
@@ -123,7 +126,7 @@ const MyAreaTable = () => {
                 <StyledTableCell align='center'>
                   <StatusSelect
                     states={row.states}
-                    // handleChangeStatus={handleChangeStatus}
+                    handleChangeStatus={handleChangeStatus}
                     index={index}
                     isMyAreaOpen={isMyAreaOpen}
                   />
