@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { memosState } from "../atoms/MemosState";
+import moment from "moment";
 
 const MemoScreen = () => {
   const navigate = useNavigate();
@@ -15,9 +16,10 @@ const MemoScreen = () => {
 
   const addMemo = () => {
     const newMemos = [...memos];
+    const currentTime = moment().format("YYYY/MM/DD HH:mm");
     newMemos.push({
       text: inputText,
-      time: "2023/04/23 15:02",
+      time: currentTime,
     });
     setMemos(newMemos);
     setInputText("");
