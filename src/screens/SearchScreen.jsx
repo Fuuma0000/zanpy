@@ -12,9 +12,9 @@ const SearchScreen = () => {
   //初回レンダリング時にmyAreaOpenStateをfalseにする
   setMyAreaOpen(false);
 
-  function createData(area, name, area, type, states, memos, memoTime) {
-    return { area, name, area, type, states, memos, memoTime };
-  }
+  // function createData(area, name, area, type, states, memos, memoTime) {
+  //   return { area, name, area, type, states, memos, memoTime };
+  // }
 
   //初回レンダリング時にAPIからデータを取得する
   // useEffect(() => {
