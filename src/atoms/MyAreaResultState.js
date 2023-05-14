@@ -12,6 +12,8 @@ import { atom } from "recoil";
 // ) {
 //   return { ani_id, area_id, ani_type, ani_name, status_id, memos, memoTime };
 // }
+
+//TODO:昔のやつなので後でちゃんとやる
 function createData(area, type, name, states, memos, memoTime) {
   return { area, type, name, states, memos, memoTime };
 }
