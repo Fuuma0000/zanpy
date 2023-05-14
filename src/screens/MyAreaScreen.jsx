@@ -4,7 +4,7 @@ import StatesTable from "../components/StatesTable";
 import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 
-const MyAreaScreen = ({ rows, setRows }) => {
+const MyAreaScreen = () => {
   const setMyAreaOpen = useSetRecoilState(myAreaOpenState);
   //初回レンダリング時にmyAreaOpenStateをtrueにする
   setMyAreaOpen(true);
@@ -15,7 +15,7 @@ const MyAreaScreen = ({ rows, setRows }) => {
     <>
       <Header></Header>
       <SearchBox></SearchBox>
-      <StatesTable rows={rows} setRows={setRows}></StatesTable>
+      <StatesTable></StatesTable>
     </>
   );
 };
