@@ -5,9 +5,9 @@ import Button from "@mui/material/Button";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import { selectedTypeState } from "../atoms/SelectedTypeState";
-import { selectedAreaState } from "../atoms/selectedAreaState";
-import { selectedNameState } from "../atoms/selectedNameState";
-import { selectedStatusState } from "../atoms/selectedStatusState";
+import { selectedAreaState } from "../atoms/SelectedAreaState";
+import { selectedNameState } from "../atoms/SelectedNameState";
+import { selectedStatusState } from "../atoms/SelectedStatusState";
 
 const SearchBox = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
