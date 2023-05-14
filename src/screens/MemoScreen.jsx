@@ -8,11 +8,17 @@ import TextField from "@mui/material/TextField";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { memosState } from "../atoms/MemosState";
 import moment from "moment";
+import { myAreaResultState } from "../atoms/MyAreaResultState";
 
 const MemoScreen = () => {
   const navigate = useNavigate();
   const [memos, setMemos] = useRecoilState(memosState);
+  const [myAreaResult, setMyAreaResult] = useRecoilState(myAreaResultState);
   const [inputText, setInputText] = useState("");
+
+  function createData(area, type, name, states, memos, memoTime) {
+    return { area, type, name, states, memos, memoTime };
+  }
 
   const addMemo = () => {
     const newMemos = [...memos];
@@ -21,6 +27,26 @@ const MemoScreen = () => {
       text: inputText,
       time: currentTime,
     });
+    //TODO: プレゼン用に仮のデータを入れているので、後で消す
+    const test = createData(
+      "ふれあい",
+      "うさぎ",
+      "キャロット",
+      null,
+      inputText,
+      currentTime
+    );
+    //myAreaResult[0]をtestに変更する
+    setMyAreaResult((prevMyAreaResult) => {
+      const updatedMyAreaResult = prevMyAreaResult.map((item, index) => {
+        if (index === 0) {
+          return test;
+        }
+        return item;
+      });
+      return updatedMyAreaResult;
+    });
+
     setMemos(newMemos);
     setInputText("");
   };
