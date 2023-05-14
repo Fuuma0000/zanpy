@@ -17,12 +17,14 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { searchResultState } from "../atoms/SearchResultState";
+import { myAreaResultState } from "../atoms/MyAreaResultState";
 
 const MyAreaTable = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchResult, setSearchResult] = useRecoilState(searchResultState);
+  const [myAreaResult, setMyAreaResult] = useRecoilState(myAreaResultState);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -86,7 +88,8 @@ const MyAreaTable = () => {
           </TableHead>
           <TableBody>
             {/* searchResultが0の時は何も表示しない */}
-            {searchResult.length === 0 && (
+            {/* TODO:myAreaかの判定 */}
+            {myAreaResult.length === 0 && (
               <StyledTableRow>
                 <StyledTableCell
                   component='th'
@@ -102,7 +105,7 @@ const MyAreaTable = () => {
                 </StyledTableCell>
               </StyledTableRow>
             )}
-            {searchResult.map((row, index) => (
+            {myAreaResult.map((row, index) => (
               <StyledTableRow key={index}>
                 {/* マイエリアならエリアを表示しない */}
                 {!isMyAreaOpen && (
