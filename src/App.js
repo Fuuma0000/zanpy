@@ -9,21 +9,18 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function App() {
-  //keyを設定するための関数
-  function createData(
-    ani_id,
-    area_id,
-    ani_type,
-    ani_name,
-    status_id,
-    memos,
-    memoTime
-  ) {
-    return { ani_id, area_id, ani_type, ani_name, status_id, memos, memoTime };
-  }
-
-  // メモ画面に行ってもデータが残っているようにするためにapp.jsにstateを設定
-  const [rows, setRows] = useState([]);
+  // //keyを設定するための関数
+  // function createData(
+  //   ani_id,
+  //   area_id,
+  //   ani_type,
+  //   ani_name,
+  //   status_id,
+  //   memos,
+  //   memoTime
+  // ) {
+  //   return { ani_id, area_id, ani_type, ani_name, status_id, memos, memoTime };
+  // }
 
   //初回レンダリング時にAPIからデータを取得する
   // useEffect(() => {
@@ -53,10 +50,7 @@ function App() {
     <BrowserRouter>
       <RecoilRoot>
         <Routes>
-          <Route
-            path={`/my-area`}
-            element={<MyAreaScreen rows={rows} setRows={setRows} />}
-          />
+          <Route path={`/my-area`} element={<MyAreaScreen />} />
           <Route path={`/login`} element={<LoginScreen />} />
           <Route path={`/memo`} element={<MemoScreen />} />
           <Route path={`/search`} element={<SearchScreen />} />
