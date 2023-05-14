@@ -11,21 +11,18 @@ import { useState } from "react";
 import StatusSelect from "./StatusSelect";
 import Button from "@mui/material/Button";
 import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import { searchResultState } from "../atoms/SearchResultState";
 
-const MyAreaTable = ({ rows, setRows }) => {
+const MyAreaTable = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleChangeStatus = (e, index) => {
-    const newRows = [...rows];
-    newRows[index].states = e.value;
-    setRows(newRows);
-  };
+  const [searchResult, setSearchResult] = useRecoilState(searchResultState);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -88,7 +85,24 @@ const MyAreaTable = ({ rows, setRows }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, index) => (
+            {/* searchResultが0の時は何も表示しない */}
+            {searchResult.length === 0 && (
+              <StyledTableRow>
+                <StyledTableCell
+                  component='th'
+                  scope='row'
+                  align='center'
+                  colSpan={isMyAreaOpen ? 5 : 6}
+                >
+                  <div className='flex justify-center items-center'>
+                    <p className='text-2xl font-bold text-test'>
+                      検索結果がありません
+                    </p>
+                  </div>
+                </StyledTableCell>
+              </StyledTableRow>
+            )}
+            {searchResult.map((row, index) => (
               <StyledTableRow key={index}>
                 {/* マイエリアならエリアを表示しない */}
                 {!isMyAreaOpen && (
@@ -106,7 +120,7 @@ const MyAreaTable = ({ rows, setRows }) => {
                 <StyledTableCell align='center'>
                   <StatusSelect
                     states={row.states}
-                    handleChangeStatus={handleChangeStatus}
+                    // handleChangeStatus={handleChangeStatus}
                     index={index}
                     isMyAreaOpen={isMyAreaOpen}
                   />
