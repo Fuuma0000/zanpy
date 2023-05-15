@@ -24,6 +24,9 @@ const SearchBox = () => {
   }
 
   const clicked = () => {
+    if (isMyAreaOpen) {
+      return;
+    }
     setSearchResult([
       createData(
         "鳥ランド",
