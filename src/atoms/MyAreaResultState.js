@@ -31,6 +31,6 @@ export const myAreaResultState = atom({
     createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
     createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
     createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
-    createData("ふれあい", "リスざるwww", "ジュリアン", null, "", ""),
+    createData("ふれあい", "リスざる", "ジュリアン", null, "", ""),
   ],
 });
