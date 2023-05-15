@@ -8,6 +8,7 @@ import { selectedTypeState } from "../atoms/SelectedTypeState";
 import { selectedAreaState } from "../atoms/SelectedAreaState";
 import { selectedNameState } from "../atoms/SelectedNameState";
 import { selectedStatusState } from "../atoms/SelectedStatusState";
+import { searchResultState } from "../atoms/SearchResultState";
 
 const SearchBox = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
@@ -16,6 +17,33 @@ const SearchBox = () => {
   const [selectedName, setSelectedName] = useRecoilState(selectedNameState);
   const [selectedStatus, setSelectedStatus] =
     useRecoilState(selectedStatusState);
+  const [searchResult, setSearchResult] = useRecoilState(searchResultState);
+
+  function createData(area, type, name, states, memos, memoTime) {
+    return { area, type, name, states, memos, memoTime };
+  }
+
+  const clicked = () => {
+    setSearchResult([
+      createData(
+        "鳥ランド",
+        "ペンギン",
+        "ウィージー",
+        1,
+        "右足負傷",
+        "2023/05/15 09:00"
+      ),
+      createData(
+        "鳥ランド",
+        "ペンギン",
+        "ぺんぺん",
+        2,
+        "サバンナで発見されました",
+        "2023/05/15 10:00"
+      ),
+      createData("鳥ランド", "ペンギン", "エリザベス", 0, "", ""),
+    ]);
+  };
 
   return (
     <div className='fixed left-16 top-64'>
@@ -151,6 +179,7 @@ const SearchBox = () => {
                 borderRadius: 10,
               }}
               className='w-36 h-12'
+              onClick={clicked}
             >
               検索
             </Button>
