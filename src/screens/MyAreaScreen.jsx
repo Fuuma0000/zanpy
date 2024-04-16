@@ -1,7 +1,7 @@
 import Header from "./Header";
 import SearchBox from "../components/SearchBox";
 import StatesTable from "../components/StatesTable";
-import { useSetRecoilState, useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import { selectedTypeState } from "../atoms/SelectedTypeState";
 import { selectedAreaState } from "../atoms/SelectedAreaState";

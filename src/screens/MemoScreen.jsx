@@ -5,7 +5,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { memosState } from "../atoms/MemosState";
 import moment from "moment";
 import { myAreaResultState } from "../atoms/MyAreaResultState";
@@ -13,7 +13,7 @@ import { myAreaResultState } from "../atoms/MyAreaResultState";
 const MemoScreen = () => {
   const navigate = useNavigate();
   const [memos, setMemos] = useRecoilState(memosState);
-  const [myAreaResult, setMyAreaResult] = useRecoilState(myAreaResultState);
+  const [, setMyAreaResult] = useRecoilState(myAreaResultState);
   const [inputText, setInputText] = useState("");
 
   function createData(area, type, name, states, memos, memoTime) {

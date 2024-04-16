@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import SearchBox from "../components/SearchBox";
-import { useSetRecoilState, useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 import StatesTable from "../components/StatesTable";
 import { selectedTypeState } from "../atoms/SelectedTypeState";

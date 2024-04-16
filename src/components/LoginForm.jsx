@@ -2,12 +2,11 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [, setUsername] = useState("");
+  const [, setPassword] = useState("");
 
   // const handleLogin = async (e) => {
   //   e.preventDefault();

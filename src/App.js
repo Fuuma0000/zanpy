@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
 import MyAreaScreen from "./screens/MyAreaScreen";
 import MemoScreen from "./screens/MemoScreen";
 import SearchScreen from "./screens/SearchScreen";
 import { RecoilRoot } from "recoil";
-import axios from "axios";
-import { useEffect } from "react";
 
 function App() {
   // //keyを設定するための関数

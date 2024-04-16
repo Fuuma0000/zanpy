@@ -17,7 +17,7 @@ const SearchBox = () => {
   const [selectedName, setSelectedName] = useRecoilState(selectedNameState);
   const [selectedStatus, setSelectedStatus] =
     useRecoilState(selectedStatusState);
-  const [searchResult, setSearchResult] = useRecoilState(searchResultState);
+  const [, setSearchResult] = useRecoilState(searchResultState);
 
   function createData(area, type, name, states, memos, memoTime) {
     return { area, type, name, states, memos, memoTime };
